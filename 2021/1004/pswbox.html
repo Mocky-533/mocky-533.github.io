@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    python-密码管理箱
+  
+</title>
+
+<meta name="description" content="假期有点无聊，搞个密码管理器，做个记录Here: repository link">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python-密码管理箱">
+<meta property="og:url" content="https://mocky-533.github.io/2021/1004/pswbox">
+<meta property="og:site_name" content="Gerald&#39;s Cabin">
+<meta property="og:description" content="假期有点无聊，搞个密码管理器，做个记录Here: repository link">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-10-04T09:39:58.000Z">
+<meta property="article:modified_time" content="2022-03-30T13:53:41.663Z">
+<meta property="article:author" content="Gerald">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+
+
+  <link rel="alternative" href="/atom.xml" title="Gerald&#39;s Cabin" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="https://i.loli.net/2021/08/20/XPHhVQI95nz6NUB.png">
+
+
+
+<link rel="stylesheet" href="/perfect-scrollbar/css/perfect-scrollbar.min.css">
+
+
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">Gerald&#39;s Cabin</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">Gerald&#39;s Cabin</a></h1>
+    
+    <div class="info">
+      <div class="content">
+        
+        <!-- 
+          <div class="author">Gerald</div>
+         -->
+      </div>
+      
+        <div class="avatar">
+          
+            <a target="_blank" rel="noopener" href="https://github.com/mocky-533"><img src="https://i.loli.net/2021/08/19/X9kxMKsutDOYLJe.png" alt="avatar"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">Category</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/code/">code</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/router/">router</a><span class="category-list-count">2</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">Tag</a>
+                <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/PE/" rel="tag">PE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">shell</a><span class="tag-list-count">2</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">Archive</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/">2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">2</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/" title="Homepage" external="false">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/archives" title="By Year" external="false">By Year</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="https://github.com/mocky-533" title="Github" target="_blank" rel="noopener">Github</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/rss.xml" title="RSS" external="false">RSS</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-pswbox" class="article article-type-post">
+  
+    <h1 class="article-header">
+      python-密码管理箱
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  10-04-2021
+</span>
+
+    
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/code/">code</a></li></ul>
+	</span>
+
+
+    
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+	</span>
+
+
+  </div>
+  <div class="article-entry">
+    <blockquote>
+<p>假期有点无聊，搞个密码管理器，做个记录<br>Here: <a target="_blank" rel="noopener" href="https://github.com/Mocky-533/PasswordBox"><strong>repository link</strong></a></p>
+</blockquote>
+<span id="more"></span>
+
+<h2><span id="jian-jie">简介</span></h2><p>头脑一热做的一个小项目，要实现的功能大致如下：</p>
+<ul>
+<li>登陆口令（称为口令，防止与后面的“密码”混淆）验证</li>
+<li>添加密码条目<ul>
+<li>app&#x2F;站点名称</li>
+<li>账号&#x2F;邮箱</li>
+<li>密码</li>
+<li>添加时间（程序自动生成）</li>
+</ul>
+</li>
+<li>密码加密</li>
+<li>密码条目存储</li>
+<li>密码条目查询<ul>
+<li>按app&#x2F;站点名称</li>
+<li>按账号&#x2F;邮箱</li>
+</ul>
+</li>
+<li>更新&#x2F;删除存储的密码条目<ul>
+<li>先获取密码条目在数据库中的ID作为参数——<del>偷懒行为</del></li>
+</ul>
+</li>
+<li>修改登陆口令</li>
+<li>(2022.1)新增密码生成，获取用户输入的密码长度数值，随机生成包括大小写字母、数字、符号的乱码作为强密码</li>
+</ul>
+<p><del>交互的话先弄成命令行程序</del> 已改用curses库实现</p>
+<h2><span id="ge-gong-neng-jian-jie">各功能简介</span></h2><h3><span id="deng-lu-kou-ling-she-zhi-yan-zheng-ji-xiu-gai">登陆口令设置、验证及修改</span></h3><p>实现方法很简单了：</p>
+<blockquote>
+<p>第一次启动程序要求设置一个登陆口令，重复输入检查无误后，hash加密，存储到数据库里。之后登陆对输入的密码进行校验即可。</p>
+</blockquote>
+<p>设置登陆口令以及后续使用时输入口令需要对输入内容进行隐藏</p>
+<ol>
+<li><p>用getpass库：</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> getpass</span><br><span class="line">pwd = getpass.getpass(<span class="string">&quot;[PASSWROD]: &quot;</span>) <span class="comment"># hide input</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>改用curses库后直接用curses.noecho()实现即可</p>
+</li>
+</ol>
+<h3><span id="python-curses-ku-shi-yong">python curses库使用</span></h3><p>不开坑，不填坑，<a target="_blank" rel="noopener" href="https://docs.python.org/3/library/curses.html">官方DOC</a>放在这算了，都是很简单的操作</p>
+<h3><span id="mi-ma-jia-jie-mi-mi-ma-tiao-mu-zeng-shan-geng-xin-ji-cha-xun">密码加解密，密码条目增删、更新及查询</span></h3><p>由于hash加密的不可逆性，这里无法使用，因为后面还要查询密码并显示，所以需要寻找一种可逆的加密方法。偷个懒，直接平移ASCII码，偏移量选为<em>当前时间的秒数+15</em>，模拟一个随机加密。自然解密就是反向平移。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># offset functions。 only one is enough actually, with changing offset value</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">enascii</span>(<span class="params">num: <span class="built_in">int</span>, offset: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">    <span class="keyword">if</span> num - offset &gt;= <span class="number">33</span>:</span><br><span class="line">        <span class="keyword">return</span> num - offset</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">93</span> + num - offset</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">deascii</span>(<span class="params">num: <span class="built_in">int</span>, offset: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span></span><br><span class="line">    <span class="keyword">if</span> num + offset &lt;= <span class="number">126</span>:</span><br><span class="line">        <span class="keyword">return</span> num + offset</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> num + offset - <span class="number">93</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># encryption</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encrypt</span>(<span class="params">psw: <span class="built_in">str</span>, offset: <span class="built_in">int</span></span>) -&gt; <span class="built_in">str</span>:</span></span><br><span class="line">    encrypt_num = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> psw:</span><br><span class="line">        encrypt_num.append(enascii(<span class="built_in">ord</span>(i), offset + <span class="number">15</span>))</span><br><span class="line">    encrypted = [<span class="built_in">chr</span>(a) <span class="keyword">for</span> a <span class="keyword">in</span> encrypt_num]</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;&quot;</span>.join(encrypted)</span><br><span class="line"></span><br><span class="line"><span class="comment"># decryption, s as encrypted password string</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt</span>(<span class="params">s: <span class="built_in">str</span>, offset: <span class="built_in">int</span></span>) -&gt; <span class="built_in">str</span>:</span></span><br><span class="line">    pwd = [<span class="built_in">chr</span>(deascii(<span class="built_in">ord</span>(a), offset + <span class="number">15</span>)) <span class="keyword">for</span> a <span class="keyword">in</span> s]</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;&quot;</span>.join(pwd)</span><br></pre></td></tr></table></figure>
+
+<p>添加和更新密码时的密码输入没有隐藏，也算是偷个懒吧，毕竟有些比较复杂的密码输错了要重新输两遍甚至多遍难免会烦。</p>
+<p>添加密码时，在输入站点和账户后对数据库中已有条目进行查询，若发现有同站点同账户密码条目询问是否停止添加转而更新密码。这里匹配方式为：站点信息完全相同，账户信息不区分大小。</p>
+<p>sqlite3进行正则搜索遇到了点困难，翻了好久文档也没弄出个方法，最后选择基于<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/5365451/problem-with-regexp-python-and-sqlite">StackOverflow中的一个方法</a>完成。密码条目查询正则匹配设置大小写不敏感，即将上述解法中正则表达式定义改为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reg = re.<span class="built_in">compile</span>(expr, re.I)</span><br></pre></td></tr></table></figure>
+
+<p>其余的内容就是数据库的操作了，放在这当备用吧</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sqlite3</span><br><span class="line">db = sqlite3.connect(<span class="string">&quot;database.db&quot;</span>)</span><br><span class="line">cur = db.cursor()</span><br><span class="line">cur.execute() <span class="comment"># commands here</span></span><br><span class="line">result1 = cur.fetchall()</span><br><span class="line">result2 = cur.fetchone()</span><br><span class="line">db.commit()</span><br><span class="line">db.close()</span><br><span class="line"></span><br><span class="line">create_command = <span class="string">&quot;&quot;&quot;CREATE TABLE (table) ...&quot;&quot;&quot;</span></span><br><span class="line">add_command = <span class="string">&quot;&quot;&quot;INSERT INTO (table) (cols) VALUES (value)&quot;&quot;&quot;</span> <span class="comment"># value must be tuple type</span></span><br><span class="line">select_command = <span class="string">&quot;&quot;&quot;SELECT * FROM (table) WHERE ...&quot;&quot;&quot;</span></span><br><span class="line">update_command = <span class="string">&quot;&quot;&quot;UPDATE (table) SET ... WHERE ...&quot;&quot;&quot;</span></span><br><span class="line">delete_command = <span class="string">&quot;&quot;&quot;DELETE FROM (table) WHERE ...&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2><span id="to-do">To Do</span></h2><p>上面提到了一部分，随时想起什么再写上放这里，<del>咕咕咕</del></p>
+<ul>
+<li><input checked disabled type="checkbox"> <del>GUI</del> 改用curses库了</li>
+<li><input checked disabled type="checkbox"> <del>搜索功能使用正则匹配</del>已完成</li>
+<li><input checked disabled type="checkbox"> <del>重复密码条目添加时进行提示与引导</del></li>
+<li><input checked disabled type="checkbox"> <del>又想起来一个，curses库只能在限定面板内显示查询结果，这样在对账号（邮箱）进行查询时，由于查询结果很多，可能由于终端面积不足而导致curses库运行出错</del>  用curses pad解决了</li>
+</ul>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.e" target="_blank" title="Attribution-ShareAlike">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2022 Gerald&#39;s Cabin - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+
+  
+<link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+<script src="/PhotoSwipe/photoswipe.js"></script>
+
+  
+<script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+
+
+<script src="/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+
+
+<script src="/scripts/main.js"></script>
+
+
+</body>
+</html>

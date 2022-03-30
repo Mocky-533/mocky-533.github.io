@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Gerald&#39;s Cabin • Posts by &#34;router&#34; category</title>
+        <link>https://mocky-533.github.io</link>
+        <description></description>
+        <language>en</language>
+        <pubDate>Fri, 04 Mar 2022 20:32:58 +0800</pubDate>
+        <lastBuildDate>Fri, 04 Mar 2022 20:32:58 +0800</lastBuildDate>
+        <category>PE</category>
+        <category>shell</category>
+        <category>python</category>
+        <item>
+            <guid isPermalink="true">https://mocky-533.github.io/2022/0304/lychee</guid>
+            <title>H大padavan固件折腾Lychee记录</title>
+            <link>https://mocky-533.github.io/2022/0304/lychee</link>
+            <category>shell</category>
+            <pubDate>Fri, 04 Mar 2022 20:32:58 +0800</pubDate>
+            <description><![CDATA[ &lt;h2&gt;&lt;span id=&#34;ying-jian&#34;&gt;硬件&lt;/span&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;del&gt;废旧&lt;/del&gt;路由NEWIFI-MINI，买了好多年了，家里就这一个带U口的路由，折腾折腾试试看&lt;/li&gt;
+&lt;li&gt;已格式化为ext4的U盘，格式化方法众多&lt;/li&gt;
+&lt;/ul&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+
+&lt;h2&gt;&lt;span id=&#34;guo-cheng&#34;&gt;过程&lt;/span&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;USB应用程序-&amp;gt;允许运行Optware-&amp;gt;Entware&lt;/li&gt;
+&lt;li&gt;配置扩展环境-&amp;gt;opt强制安装-&amp;gt;安装到U盘&lt;ul&gt;
+&lt;li&gt;如果设置好之后ssh连接到路由器输入命令&lt;code&gt;df -h&lt;/code&gt;后&amp;#x2F;opt仍未挂载到U盘中，可通过命令&lt;code&gt;mount \dev\sda1 \opt&lt;/code&gt;手动挂载。其中&lt;code&gt;\dev\sda1&lt;/code&gt;是我的U盘，根据实际情况填入对应的路径即可。&lt;br&gt; 安装opt耗时较长，和网络环境及硬件水平有关，耐心等待log栏中完成的信息。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;建立swap分区&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;NEWIFI-MINI内存只有64MB，跑不动mysql这种服务。&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;dd if=/dev/zero of=/opt/swap bs=1M count=1024 #分大了点，反正U盘够大&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;mkswap /opt/swap&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;swapon /opt/swap&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;建立好swap分区后如果LNMP不停重启，不妨试试重启路由器&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;路由器重启后swap分区不会自动挂载，在启动后运行的脚本中加入&lt;code&gt;swapon /opt/swap&lt;/code&gt;以开机自动挂载swap分区&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;搭建web环境-&amp;gt;启用nginx+mysql+php环境&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;遇到了两个问题：找不到nginx、找不到mysqld，解决办法很简单，ssh客户端中输入命令&lt;/p&gt;
+  &lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;opkg update&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;opkg install nginx&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;opkg install mysql-server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;即可正常下载安装LNMP&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt; 这一步耗时也较长，仍需耐心等待log栏中完成的信息&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;phpmyadmin下载失败，长时间卡在下载进程，可从官网手动下载4.8.3版本（看log栏中显示的链接信息，可能版本会有所不同），压缩包名称修改为&lt;code&gt;phpmyadmin.zip&lt;/code&gt;后传入路由器&lt;code&gt;\opt\wwwroot&lt;/code&gt;路径即可正常解压运行&lt;/li&gt;
+&lt;li&gt;一切准备好后路由器log栏中发现mysql仍不停重启，ssh终端运行mysql后发现缺少mysql库，大概是本地数据库初始化未完成的原因，找到&lt;code&gt;mysql&lt;/code&gt;下的&lt;code&gt;bin&lt;/code&gt;目录，（padavan系统为&lt;code&gt;/opt/bin&lt;/code&gt;目录）运行&lt;code&gt;mysql_install_db&lt;/code&gt;，重新初始化mysql库后恢复正常&lt;/li&gt;
+&lt;li&gt;几次运行后发现有时phpmyadmin无法进入，试了试把phpmyadmin config中的&lt;code&gt;$cfg[&amp;#39;Servers&amp;#39;][$i][&amp;#39;host&amp;#39;] = &amp;#39;localhost&amp;#39;;&lt;/code&gt;更改为&lt;code&gt;$cfg[&amp;#39;Servers&amp;#39;][$i][&amp;#39;host&amp;#39;] = &amp;#39;127.0.0.1&amp;#39;;&lt;/code&gt;后运行正常。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;&lt;span id=&#34;hou-ji&#34;&gt;后记&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;使用效果&lt;br&gt;&lt;img src=&#34;https://s2.loli.net/2022/03/11/AfRPeDobru9Tz6B.gif&#34; alt=&#34;web view&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;gif录制压缩原因，图片失真严重，实际查看时图片分辨率保持图片源分辨率&lt;br&gt;&lt;em&gt;此篇只做记录用，以方便再折腾其他功能&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://mocky-533.github.io/2021/1021/ipv6</guid>
+            <title>padavan固件ipv6检验脚本</title>
+            <link>https://mocky-533.github.io/2021/1021/ipv6</link>
+            <category>shell</category>
+            <pubDate>Thu, 21 Oct 2021 17:29:11 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;不知道什么原因，ipv6总是隔一段时间就掉线，重启路由器后又恢复正常。又因为个人有pt做种需求，ipv6又是不可或缺的条件，所以写个简单的脚本，当ipv6又断线时自动重启路由器&lt;/p&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;!/bin/sh&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;ipv6 check script, reboot &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; fails&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;bash&#34;&gt;url=&amp;lt;an ipv6-only site&amp;gt;  || delete the &lt;span class=&#34;string&#34;&gt;&amp;quot;#&amp;quot;&lt;/span&gt; to take effect or replace &lt;span class=&#34;string&#34;&gt;&amp;#x27;$url&amp;#x27;&lt;/span&gt; with actual url down &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; the corresponding &lt;span class=&#34;built_in&#34;&gt;command&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;n=4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;timeout=1000&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;logger -t &amp;quot;[ipv6]&amp;quot; &amp;quot;check BEGIN&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ping -c $n -W $timeout $url&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;if [ $? != 0 ];then&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    logger -t &amp;quot;[ipv6]&amp;quot; &amp;quot;failed, try reboot&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    reboot&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;else&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    logger -t &amp;quot;[ipv6]&amp;quot; &amp;quot;working fine!&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;fi&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;exit 0&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;脚本内容一目了然，需要注意的一点，&lt;code&gt;logger -t&lt;/code&gt;在log中写入信息时需要两个字符串作为输入，如上文的语句运行后在padavan管理面板的log显示如下：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;Oct 21 17:40:00 [ipv6]:  check BEGIN&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Oct 21 17:40:03 [ipv6]:  working fine&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;实际使用中，这样可能会导致log栏中的内容被以上两条占满，可以在测试实际自动运行正常后将log栏输出删除。&lt;/p&gt;
+&lt;h2&gt;&lt;span id=&#34;cao-zuo-guo-cheng&#34;&gt;操作过程&lt;/span&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;勾选高级设置-系统管理-服务-启用ssh服务，windows可能会因为端口原因无法连接，打开对应端口即可&lt;/p&gt;
+ &lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;ssh admin@192.168.123.1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;没有修改默认管理地址的话padavan的地址就是192.168.123.1，账号密码根据个人设置对应输入&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;进入路由器后，要先找到&lt;code&gt;/etc/storage/&lt;/code&gt;路径，因为其余路径在路由器重启后会自动恢复。脚本还要重复用呢是吧~&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;直接用&lt;code&gt;vi ipv6_check.sh&lt;/code&gt;命令新建脚本，将上面的内容输入保存退出即可。提醒一下vi的操作最好先熟悉熟悉。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;由于padavan系统的设置，如果没有执行保存脚本，就并没有真正的写入路由器Rom里，重启之后文件还会丢失。&lt;br&gt; 执行&lt;code&gt;/sbin/mtd_storage.sh save&lt;/code&gt;保存配置。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;设置定时脚本&lt;br&gt; 系统管理-服务-Cron守护程序（计划任务）-Crontab中输入&lt;code&gt;*/10 * * * * /etc/storage/ipv6_check.sh&lt;/code&gt;，设置每十分钟运行一次脚本，大功告成！&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Gerald&#39;s Cabin • Posts by &#34;pe&#34; tag</title>
+        <link>https://mocky-533.github.io</link>
+        <description></description>
+        <language>en</language>
+        <pubDate>Sat, 08 Jan 2022 18:11:02 +0800</pubDate>
+        <lastBuildDate>Sat, 08 Jan 2022 18:11:02 +0800</lastBuildDate>
+        <category>PE</category>
+        <category>shell</category>
+        <category>python</category>
+        <item>
+            <guid isPermalink="true">https://mocky-533.github.io/2022/0108/8T-install-pixel-experience</guid>
+            <title>一加8T刷机(作死)历程</title>
+            <link>https://mocky-533.github.io/2022/0108/8T-install-pixel-experience</link>
+            <category>PE</category>
+            <pubDate>Sat, 08 Jan 2022 18:11:02 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;昨天把手里的8T刷了&lt;a href=&#34;https://download.pixelexperience.org/&#34;&gt;Pixel Experience&lt;/a&gt;，简单记录一下遇到的几个问题。&lt;/p&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+
+&lt;h2&gt;&lt;span id=&#34;shua-ru-pixel-experience&#34;&gt;刷入pixel experience&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;&lt;a href=&#34;https://wiki.pixelexperience.org/devices/kebab/install&#34;&gt;Pixel Experience官方的刷机教程&lt;/a&gt;已经比较详尽了，直接按照步骤一步步操作即可。&lt;/p&gt;
+&lt;p&gt;以下开始记录遇到的问题，其实解决方案网上搜一搜也有很多，这里记下我所用的有效的方案留个底以备用吧&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;进行到第四步时，执行&lt;code&gt;fastboot devices&lt;/code&gt;查询不到设备。&lt;/p&gt;
+&lt;p&gt; 首先原因为驱动未安装，在设备管理器中&lt;code&gt;右键Android&lt;/code&gt;，依次选择&lt;code&gt;更新驱动程序软件&lt;/code&gt;、&lt;code&gt;浏览计算机以查找驱动程序软件&lt;/code&gt;、&lt;code&gt;从计算机的设备驱动程序列表中选择&lt;/code&gt;、&lt;code&gt;Android Phone&lt;/code&gt;、&lt;code&gt;Android Bootloader Interface&lt;/code&gt;，安装好驱动，再次执行&lt;code&gt;fastboot devices&lt;/code&gt;时就可以顺利找到设备了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;教程&lt;a href=&#34;https://wiki.pixelexperience.org/devices/kebab/install/#pre-install-instructions&#34;&gt;pre-install instructions&lt;/a&gt;部分提到&lt;code&gt;copy-partitions-20210323_1922.zip&lt;/code&gt;文件无法下载&lt;/p&gt;
+&lt;p&gt; 原文件所在repo中没有找到这个文件，可能是后来更改时弄错了吧。这里放一个&lt;a href=&#34;https://androidfilehost.com/?fid=2188818919693768129&#34;&gt;可信的文件源&lt;/a&gt;，使用一切正常&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;PE官方提供的recovery镜像无法刷入Pixel Experience固件，手机端返回的错误码为&lt;code&gt;error in /sideload/package.zip (status 1)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt; 这个原因我也无从得知了，在xda上草草看了一眼就改用&lt;a href=&#34;https://twrp.me/&#34;&gt;twrp recovery&lt;/a&gt;进行刷入了，一切正常。虽然在PE官网的固件changelog中是提到用PE的recovery进行刷入^.^&lt;/p&gt;
+ &lt;img src=&#34;https://s2.loli.net/2022/01/08/GExi9ohSjsAQROP.png&#34; alt=&#34;Use PE recovery to flash the build.&#34;&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;最后一个问题纯粹是自己手贱了属于，不要回锁bootloader！&lt;/p&gt;
+&lt;p&gt; 官方教程&lt;a href=&#34;https://wiki.pixelexperience.org/devices/kebab/install/#post-install-instructions&#34;&gt;Post-install instructions&lt;/a&gt;中提到了刷入 &lt;code&gt;avb_custom_key&lt;/code&gt;后可回锁，切记切记要确认成功刷入后再回锁！昨天avb_custom_key下载失败，得到的只是一个空文件，我没有查看是否成功刷入直接进行了回锁，结果自然是一个鲜艳的红色感叹号，和那句令人窒息的”your device is corrupt. It can’t be trusted and will not boot”&lt;/p&gt;
+&lt;p&gt; 如果真的像我一样手贱回锁了，先别急，我昨天一通操作，居然进入了fastboot模式，然后又直接解锁了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;步骤如下:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;power&lt;/code&gt;+&lt;code&gt;volume up&lt;/code&gt;彻底关机&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;volume down&lt;/code&gt;+&lt;code&gt;volume up&lt;/code&gt;，再插入数据线，就进入fastboot模式了&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt; 这只是昨天乱尝试偶然获得的一个解决方法。如果如上操作未能顺利进入fastboot模式，建议还是稳妥起见高通9008刷机为好。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;&lt;span id=&#34;shi-yong-zhong-de-wen-ti&#34;&gt;使用中的问题&lt;/span&gt;&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;通话录音&lt;/p&gt;
+&lt;p&gt; 原生安卓据说是要开始支持这一项了，不过这次刷入的PE Plus还没有这一功能，借助magisk模块&lt;a href=&#34;https://callrecorder.skvalex.com/get&#34;&gt;Call Recorder - SKVALEX&lt;/a&gt;可以很好地解决这一问题。相似的解决方案也很多，不做赘述&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;短信拦截&lt;/p&gt;
+&lt;p&gt; 这是原生安卓最大的痛点了，目前还没有太好的解决方法，待定…&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;取消Google Play对特定应用的更新提醒&lt;/p&gt;
+&lt;p&gt; Google Play一个我不太接受的特性就是不能忽略应用更新了。magisk的模块库中的&lt;a href=&#34;https://github.com/Magisk-Modules-Repo/Detach&#34;&gt;Detach&lt;/a&gt;能够很好的满足这一要求。使用及操作要求在官方github仓库中有很清晰的介绍，不做赘述。需要注意的一点是，magisk安装Detach需要另一模块Busybox for Android NDK作基础，这一模块在magisk模块库中直接下载安装即可。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;应用列表隐藏&lt;/p&gt;
+&lt;p&gt; 也是刷机玩家的老朋友了，主要是为了避免应用读取已安装应用列表从而生成用户画像，一定程度上也是隐私保护的一种方式。&lt;/p&gt;
+&lt;p&gt; 源仓库地址：&lt;a href=&#34;https://github.com/Dr-TSNG/Hide-My-Applist&#34;&gt;github&lt;/a&gt;，这项功能要从LSPosed中安装，按照要求一步步下载apk安装，并从软件中安装需要的magisk模块，设定白&amp;#x2F;黑名单并将规则作用于应用即可。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;更方便的联网控制&lt;/p&gt;
+&lt;p&gt; 相比于安卓自带的联网控制需要一个一个软件地进行管理，利用&lt;a href=&#34;https://github.com/ukanth/afwall/&#34;&gt;AFWall+&lt;/a&gt;进行联网控制就容易且清晰得多了。这是一个可以从Google Play直接获取的应用。使用也非常直观，勾选想要限制的联网功能（局域网、WiFi、移动数据），再点击右上角应用规则即可。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>
