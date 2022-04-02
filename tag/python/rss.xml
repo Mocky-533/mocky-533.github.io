@@ -7,8 +7,8 @@
         <language>en</language>
         <pubDate>Wed, 30 Mar 2022 16:40:59 +0800</pubDate>
         <lastBuildDate>Wed, 30 Mar 2022 16:40:59 +0800</lastBuildDate>
-        <category>shell</category>
         <category>PE</category>
+        <category>shell</category>
         <category>python</category>
         <item>
             <guid isPermalink="true">https://mocky-533.github.io/2022/0330/pythonchallenge</guid>
@@ -40,9 +40,9 @@
 &lt;tr&gt;
     &lt;td&gt;&lt;a href=&#34;#level-11&#34;&gt;level 11&lt;/a&gt;&lt;/td&gt;
     &lt;td&gt;&lt;a href=&#34;#level-12&#34;&gt;level 12&lt;/a&gt;&lt;/td&gt;
-    &lt;!-- &lt;td&gt;&lt;a href=&#34;#level-13&#34;&gt;level 13&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href=&#34;#level-13&#34;&gt;level 13&lt;/a&gt;&lt;/td&gt;
     &lt;td&gt;&lt;a href=&#34;#level-14&#34;&gt;level 14&lt;/a&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;a href=&#34;#level-15&#34;&gt;level 15&lt;/a&gt;&lt;/td&gt; --&gt;
+    &lt;td&gt;&lt;a href=&#34;#level-15&#34;&gt;level 15&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;!-- &lt;tr&gt;
     &lt;td&gt;&lt;a href=&#34;#level-16&#34;&gt;level 16&lt;/a&gt;&lt;/td&gt;
@@ -50,15 +50,15 @@
     &lt;td&gt;&lt;a href=&#34;#level-18&#34;&gt;level 18&lt;/a&gt;&lt;/td&gt;
     &lt;td&gt;&lt;a href=&#34;#level-19&#34;&gt;level 19&lt;/a&gt;&lt;/td&gt;
     &lt;td&gt;&lt;a href=&#34;#level-20&#34;&gt;level 20&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
+&lt;/tr&gt; --&gt;
+&lt;!-- &lt;tr&gt;
     &lt;td&gt;&lt;a href=&#34;#level-21&#34;&gt;level 21&lt;/a&gt;&lt;/td&gt;
     &lt;td&gt;&lt;a href=&#34;#level-22&#34;&gt;level 22&lt;/a&gt;&lt;/td&gt;
     &lt;td&gt;&lt;a href=&#34;#level-13&#34;&gt;level 23&lt;/a&gt;&lt;/td&gt;
     &lt;td&gt;&lt;a href=&#34;#level-24&#34;&gt;level 24&lt;/a&gt;&lt;/td&gt;
     &lt;td&gt;&lt;a href=&#34;#level-25&#34;&gt;level 25&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
+&lt;/tr&gt; --&gt;
+&lt;!-- &lt;tr&gt;
     &lt;td&gt;&lt;a href=&#34;#level-26&#34;&gt;level 26&lt;/a&gt;&lt;/td&gt;
     &lt;td&gt;&lt;a href=&#34;#level-27&#34;&gt;level 27&lt;/a&gt;&lt;/td&gt;
     &lt;td&gt;&lt;a href=&#34;#level-28&#34;&gt;level 28&lt;/a&gt;&lt;/td&gt;
@@ -180,7 +180,7 @@
 &lt;p&gt;图片源地址为&lt;code&gt;evil1.jpg&lt;/code&gt;，会有evil2，evil3，甚至evil4，evil5吗，试试。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;evil2.jpg&lt;/code&gt;显示&lt;code&gt;not jpg, _.gfx&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;.gfx是什么意思呢，google一下&lt;br&gt;The GFX file type is primarily associated with Cue Club Image File. -&amp;gt;&lt;a href=&#34;https://filext.com/file-extension/GFX&#34;&gt;source&lt;/a&gt;&lt;br&gt;可以理解为是个图片类的扩展名，把&lt;code&gt;evil2.jpg&lt;/code&gt;改为&lt;code&gt;evil2.gfx&lt;/code&gt;果然是个文件链接。&lt;/p&gt;
-&lt;p&gt;再试试&lt;code&gt;evil3.jpg&lt;/code&gt;，OK，显示&lt;code&gt;no more evils&lt;/code&gt;了，那应该信息在&lt;code&gt;evil2.gfx&lt;/code&gt;和&lt;code&gt;evil1.jpg&lt;/code&gt;这两个文件当中了&lt;/p&gt;
+&lt;p&gt;再试试&lt;code&gt;evil3.jpg&lt;/code&gt;，OK，显示&lt;code&gt;no more evils&lt;/code&gt;了，那应该信息在&lt;code&gt;evil2.gfx&lt;/code&gt;和&lt;code&gt;evil1.jpg&lt;/code&gt;这两个文件当中了（还是需要继续尝试的，下一题需要）&lt;/p&gt;
 &lt;p&gt;打开&lt;code&gt;evil2.gfx&lt;/code&gt;，尝试直接转为&lt;code&gt;evil2.jpg&lt;/code&gt;&lt;/p&gt;
 &lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;with&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;open&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;assets/evil2.gfx&amp;quot;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;rb&amp;quot;&lt;/span&gt;) &lt;span class=&#34;keyword&#34;&gt;as&lt;/span&gt; f:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    text = f.read()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;with&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;open&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;assets/evil2.jpg&amp;quot;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;wb&amp;quot;&lt;/span&gt;) &lt;span class=&#34;keyword&#34;&gt;as&lt;/span&gt; f:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    f.write(text)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
@@ -190,6 +190,67 @@
 &lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;with&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;open&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;assets/evil2.gfx&amp;quot;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;rb&amp;quot;&lt;/span&gt;) &lt;span class=&#34;keyword&#34;&gt;as&lt;/span&gt; f:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    text = f.read()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; i &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;range&lt;/span&gt;(&lt;span class=&#34;number&#34;&gt;5&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;with&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;open&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;f&amp;#x27;assets/&lt;span class=&#34;subst&#34;&gt;&amp;#123;i&amp;#125;&lt;/span&gt;.jpg&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;#x27;wb&amp;#x27;&lt;/span&gt;) &lt;span class=&#34;keyword&#34;&gt;as&lt;/span&gt; f:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        f.write(text[i::&lt;span class=&#34;number&#34;&gt;5&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
 &lt;p&gt;wait，那么&lt;code&gt;evil1.jpg&lt;/code&gt;的作用是什么？找来找去看到图中发的牌都为&lt;code&gt;5&lt;/code&gt;，大概是个线索吧，虽然被我忽略了…&lt;/p&gt;
+&lt;h2&gt;&lt;span id=&#34;level-13&#34;&gt;Level 13&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;按键5处有链接，得到一个xml文件。&lt;/p&gt;
+&lt;p&gt;说实话，这题我是从网上找的解析，触及我盲区了。这里补充一些自己的理解&lt;/p&gt;
+&lt;p&gt;xml-rpc就是一个post请求，形式为xml格式，执行结果也会以xml格式返回。python中执行这类操作有内置模块&lt;code&gt;xmlrpc.client&lt;/code&gt;和&lt;code&gt;xmlrpc.server&lt;/code&gt;，二者作用一目了然，这一题要用到的即为&lt;code&gt;xmlrpc.client&lt;/code&gt;模块&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; xmlrpc.client&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;post = xmlrpc.client.ServerProxy(&lt;span class=&#34;string&#34;&gt;&amp;quot;http://www.pythonchallenge.com/pc/phonebook.php)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;构建好&lt;code&gt;ServerProxy&lt;/code&gt;对象后利用&lt;a href=&#34;https://docs.python.org/3/library/xmlrpc.client.html#xmlrpc.client.ServerProxy.system.listMethods&#34;&gt;system.listMethods&lt;/a&gt;方法查询服务端提供的method&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(post.system.listMethods())&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;得到&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[‘phone’, ‘system.listMethods’, ‘system.methodHelp’, ‘system.methodSignature’, ‘system.multicall’, ‘system.getCapabilities’]&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;其中&lt;code&gt;phone&lt;/code&gt;看起来是这个服务端特有的一个method方法，用&lt;code&gt;system.methodHelp&lt;/code&gt;查询该method的作用&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(post.system.methodHelp(&lt;span class=&#34;string&#34;&gt;&amp;quot;phone&amp;quot;&lt;/span&gt;))&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Returns the phone of a person&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;OK，需要的method也知道了，现在还缺少的条件就是&lt;code&gt;person&lt;/code&gt;了。在网上查了一下才看见，原来上一题的&lt;code&gt;evil4.jpg&lt;/code&gt;是有信息的，怪我太单纯，相信了它的鬼话。但是只有ie浏览器能够访问，或者利用&lt;code&gt;curl&lt;/code&gt;语句获取，即为此题&lt;code&gt;person&lt;/code&gt;的名字”Bert”&lt;/p&gt;
+&lt;p&gt;查询结果为&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;555-ITALY&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;&lt;span id=&#34;level-14&#34;&gt;Level 14&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;结合walk around以及上方图片，应该与绕圈圈或者螺旋有关。下面的条形码(?)图片应该就是要处理的图片了。网页源码中带有注释&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;remember: 100*100 &amp;#x3D; (100+99+99+98) + (…&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;而且注意到wire.png在浏览器DevTools中的信息：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Rendered size:100 × 100 px&lt;br&gt;Rendered aspect ratio:1∶1&lt;br&gt;Intrinsic size:10000 × 1 px&lt;br&gt;Intrinsic aspect ratio:10000∶1&lt;br&gt;File size:15.9 kB&lt;br&gt;Current source:&lt;a href=&#34;http://www.pythonchallenge.com/pc/return/wire.png&#34;&gt;http://www.pythonchallenge.com/pc/return/wire.png&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;它并不是100px*100px的图片，而是10000px*1px的图片&lt;/p&gt;
+&lt;p&gt;那么这个等式代表什么呢？&lt;/p&gt;
+&lt;p&gt;举个简单的例子，一张5px*5px的图片，从最外侧沿直线一圈一圈螺旋状向内绕，如下图沿同颜色的色块走到边界然后转弯&lt;/p&gt;
+&lt;img src=&#34;https://s2.loli.net/2022/04/01/hpOasHD6YtiycQK.png&#34; width=&#34;300px&#34; alt=&#34;spiral&#34;&gt;
+
+&lt;p&gt;那么以每次转弯为边界，每次走过的像素数依次是5,4,4,3,3,2,2,1,1&lt;/p&gt;
+&lt;p&gt;拓展到100px*100px的图片，那么上面的等式就能补全了&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;100*100 &amp;#x3D; 100+99+99+98+98+97+97+…+3+3+2+2+1+1&lt;br&gt;&amp;#x3D;（100+99+99+98)+(98+97+97+96)+…+(5+4+4+3)+(3+2+2+1)+1&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;那么要对&lt;code&gt;wire.png&lt;/code&gt;进行的处理即为螺旋式将10000个像素逐个填入到100px*100px的图像当中咯&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; cv2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; numpy &lt;span class=&#34;keyword&#34;&gt;as&lt;/span&gt; np&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;img = cv2.imread(&lt;span class=&#34;string&#34;&gt;&amp;quot;assets/wire.png&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;img1 = np.zeros((&lt;span class=&#34;number&#34;&gt;300&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;300&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;), np.uint8)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;img1.fill(&lt;span class=&#34;number&#34;&gt;200&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;dirs = [(&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;), (&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;,&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;), (&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;,-&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;), (-&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;,&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;)]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;count, i, pos_x, pos_y = &lt;span class=&#34;number&#34;&gt;200&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, -&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;dis = count//&lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt; dis &amp;gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;dir&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; dirs:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        dis = count//&lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; _ &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;range&lt;/span&gt;(dis):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            pos_x = pos_x + &lt;span class=&#34;built_in&#34;&gt;dir&lt;/span&gt;[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            pos_y = pos_y + &lt;span class=&#34;built_in&#34;&gt;dir&lt;/span&gt;[&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            img1[pos_x, pos_y] = img[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, i]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            i += &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        count -= &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cv2.imshow(&lt;span class=&#34;string&#34;&gt;&amp;quot;result&amp;quot;&lt;/span&gt;, img1)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cv2.waitKey(&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;voila~，诶他叫uzi，替换地址就是下一题了&lt;/p&gt;
+&lt;h2&gt;&lt;span id=&#34;level-15&#34;&gt;Level 15&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;首先直接上结论，著名音乐家Mozart&lt;/p&gt;
+&lt;p&gt;为什么呢？注释里说&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;todo: buy flowers for tomorrow&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;然后我就去查了1月27日出生的名人，so，第一个就是WOLFGANG AMADEUS MOZART，然后就进入下一题了…..&lt;/p&gt;
+&lt;p&gt;OK，回过头分析一下这道题，针对结果给出过程了属于是&lt;/p&gt;
+&lt;p&gt;首先1月27日肯定是个大日子没错了，注意图片右下角中的下月预览，共29天，那么这一年(1XX6年)是个闰年，而且当年1月1日为周四。再结合&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;he ain’t the youngest, he is the second&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;也就是求从当今向前推，第二个最后一位数为6的闰年咯，虽然已经知道答案是1756了，但当然还是要做一下&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; calendar&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;front, count = &lt;span class=&#34;number&#34;&gt;2000&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;True&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    year = front + &lt;span class=&#34;number&#34;&gt;6&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; calendar.isleap(year) &lt;span class=&#34;keyword&#34;&gt;and&lt;/span&gt; calendar.weekday(year, &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;) == &lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        count += &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    front -= &lt;span class=&#34;number&#34;&gt;10&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; count == &lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(year)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;break&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2&gt;&lt;span id=&#34;level-16&#34;&gt;Level 16&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;Let me get this straight&lt;/p&gt;
+&lt;p&gt;看上去应该是把粉色条状对齐？奈何&lt;code&gt;.gif&lt;/code&gt;文件无法用opencv操作，待我学习一下Pillow…&lt;/p&gt;
  ]]></description>
         </item>
         <item>
