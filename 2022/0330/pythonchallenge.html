@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://s2.loli.net/2022/03/31/up6kroOIvtNdMiE.png">
 <meta property="og:image" content="https://s2.loli.net/2022/04/01/hpOasHD6YtiycQK.png">
 <meta property="article:published_time" content="2022-03-30T08:40:59.000Z">
-<meta property="article:modified_time" content="2022-04-02T03:45:53.656Z">
+<meta property="article:modified_time" content="2022-04-04T10:14:31.686Z">
 <meta property="article:author" content="Gerald">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
@@ -209,13 +209,13 @@
     <td><a href="#level-14">level 14</a></td>
     <td><a href="#level-15">level 15</a></td>
 </tr>
-<!-- <tr>
+<tr>
     <td><a href="#level-16">level 16</a></td>
     <td><a href="#level-17">level 17</a></td>
     <td><a href="#level-18">level 18</a></td>
-    <td><a href="#level-19">level 19</a></td>
-    <td><a href="#level-20">level 20</a></td>
-</tr> -->
+    <!-- <td><a href="#level-19">level 19</a></td> -->
+    <!-- <td><a href="#level-20">level 20</a></td> -->
+</tr>
 <!-- <tr>
     <td><a href="#level-21">level 21</a></td>
     <td><a href="#level-22">level 22</a></td>
@@ -415,7 +415,73 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> calendar</span><br><span class="line"></span><br><span class="line">front, count = <span class="number">2020</span>, <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    year = front + <span class="number">6</span></span><br><span class="line">    <span class="keyword">if</span> calendar.isleap(year) <span class="keyword">and</span> calendar.weekday(year, <span class="number">1</span>, <span class="number">1</span>) == <span class="number">3</span>:</span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line">    front -= <span class="number">10</span></span><br><span class="line">    <span class="keyword">if</span> count == <span class="number">2</span>:</span><br><span class="line">        <span class="built_in">print</span>(year)</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
 
 <h2><span id="level-16">Level 16</span></h2><p>Let me get this straight</p>
-<p>看上去应该是把粉色条状对齐？奈何<code>.gif</code>文件无法用opencv操作，待我学习一下Pillow…</p>
+<p>看上去应该是把这些粉&#x2F;紫色的色块对齐？大概看了一下，前面四行像素中都只有一个粉&#x2F;紫色块，那应该就是这样了。用截图工具逐像素查一下，发现这些粉&#x2F;紫色块长度都为5个像素，那么接下来就容易了。</p>
+<p>opencv无法处理<code>.gif</code>文件，所以花了点时间简单学习了下pillow的使用</p>
+<p>首先要确定每行中粉&#x2F;紫色块的位置(即其所在像素在整个像素行list中的索引值)，只需在一行像素中找到连续5个值完全相同的像素即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line">img = Image.<span class="built_in">open</span>(<span class="string">&quot;assets/mozart.gif&quot;</span>)</span><br><span class="line">pixels = [img.getpixel((pos_x, <span class="number">0</span>)) <span class="keyword">for</span> pos_x <span class="keyword">in</span> <span class="built_in">range</span>(img.size[<span class="number">0</span>])]</span><br><span class="line">flag = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(pixels)-<span class="number">5</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">5</span>):</span><br><span class="line">        <span class="keyword">if</span> pixels[i] == pixels[i+j]:</span><br><span class="line">            flag = <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            flag = <span class="number">0</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> flag == <span class="number">1</span>:</span><br><span class="line">        <span class="built_in">print</span>(pixels[i])</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>195</p>
+</blockquote>
+<p>那么需要找的像素值就应该是<code>195</code>了。找到这个像素后将此像素之前的部分全部切下接到整行像素的末尾试一下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line">img = Image.<span class="built_in">open</span>(<span class="string">&quot;assets/mozart.gif&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> pos_y <span class="keyword">in</span> <span class="built_in">range</span>(img.size[<span class="number">1</span>]):</span><br><span class="line">    pixels = [img.getpixel((pos_x, pos_y)) <span class="keyword">for</span> pos_x <span class="keyword">in</span> <span class="built_in">range</span>(img.size[<span class="number">0</span>])]</span><br><span class="line">    flag = pixels.index(<span class="number">195</span>)</span><br><span class="line">    pixels = pixels[flag:] + pixels[:flag]</span><br><span class="line">    <span class="keyword">for</span> pos_x <span class="keyword">in</span> <span class="built_in">range</span>(img.size[<span class="number">0</span>]):</span><br><span class="line">        img.putpixel((pos_x,pos_y), pixels[pos_x])</span><br><span class="line">img.show()</span><br></pre></td></tr></table></figure>
+
+<p>芝麻芝麻~</p>
+<h2><span id="level-17">Level 17</span></h2><p>诶，主图左下角的部分好像见过，是第四题的图，那么，又是一道网页请求类的题目？</p>
+<p>查看网页cookies</p>
+<blockquote>
+<p>you%20should%20have%20followed%20busynothing…</p>
+</blockquote>
+<p>看样子应该是把第四题的首个地址改为<code>...?busynothing=12345</code>然后进行网页请求咯</p>
+<p>然而并不是，除了一句<code>that&#39;s it</code>什么也没得到，猜测这可能是循环请求结束的节点。或许是要读取cookie内容？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url=<span class="string">&#x27;http://www.pythonchallenge.com/pc/def/linkedlist.php?busynothing=12345&#x27;</span></span><br><span class="line">r=requests.get(url)</span><br><span class="line">txt=r.text</span><br><span class="line">cookies = r.cookies[<span class="string">&#x27;info&#x27;</span>]</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    url=<span class="string">&#x27;http://www.pythonchallenge.com/pc/def/linkedlist.php?busynothing=&#x27;</span>+txt.split()[-<span class="number">1</span>]</span><br><span class="line">    r=requests.get(url)</span><br><span class="line">    txt = r.text</span><br><span class="line">    <span class="built_in">print</span>(txt)</span><br><span class="line">    cookies += r.cookies[<span class="string">&#x27;info&#x27;</span>]</span><br><span class="line">    result = re.search(<span class="string">&#x27;the next busynothing is (\d+)&#x27;</span>, txt)</span><br><span class="line">    <span class="keyword">if</span> result == <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(cookies)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>BZh91AY%26SY%94%3A%E2I%00%00%21%19%80P%81%11%00%AFg%9E%A0%20%00hE%3DM%B5%23%D0%D4%D1%E2%8D%06%A9%FA%26S%D4%D3%21%A1%EAi7h%9B%9A%2B%BF%60%22%C5WX%E1%ADL%80%E8V%3C%C6%A8%DBH%2632%18%A8x%01%08%21%8DS%0B%C8%AF%96KO%CA2%B0%F1%BD%1Du%A0%86%05%92s%B0%92%C4Bc%F1w%24S%85%09%09C%AE%24%90</p>
+</blockquote>
+<p>emm，看开头像是之前做过的<a href="#level-8">bzip2压缩</a>，但是编码有问题。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">line = urllib.parse.unquote_to_bytes(cookies)</span><br><span class="line"><span class="built_in">print</span>(line)</span><br></pre></td></tr></table></figure>
+
+<p>得到结果</p>
+<blockquote>
+<p>b’BZh91AY&amp;SY\x94:\xe2I\x00\x00!\x19\x80P\x81\x11\x00\xafg\x9e\xa0 \x00hE&#x3D;M\xb5#\xd0\xd4\xd1\xe2\x8d\x06\xa9\xfa&amp;S\xd4\xd3!\xa1\xeai7h\x9b\x9a+\xbf&#96;”\xc5WX\xe1\xadL\x80\xe8V&lt;\xc6\xa8\xdbH&amp;32\x18\xa8x\x01\x08!\x8dS\x0b\xc8\xaf\x96KO\xca2\xb0\xf1\xbd\x1du\xa0\x86\x05\x92s\xb0\x92\xc4Bc\xf1w$S\x85\t\tC\xae$\x90’</p>
+</blockquote>
+<p>这回看上去和bzip压缩后的结果很像了，解压</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(bz2.decompress(line).decode(<span class="string">&quot;utf-8&quot;</span>))</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>is it the 26th already? call his father and inform him that “the flowers are on their way”. he’ll understand.</p>
+</blockquote>
+<p><code>call his father</code>，结合<code>26th</code>，那么应该是Mozart的父亲咯，在网上查了一下名叫<code>Leopold</code>，<code>call</code>自然是<a href="#level-13">13题</a>中的<code>phone</code>方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> xmlrpc.client</span><br><span class="line"></span><br><span class="line">post = xmlrpc.client.ServerProxy(<span class="string">&quot;http://www.pythonchallenge.com/pc/phonebook.php&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(post.phone(<span class="string">&quot;Leopold&quot;</span>))</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>555-VIOLIN</p>
+</blockquote>
+<p>替换<code>.../violin.html</code>试试</p>
+<blockquote>
+<p>no! i mean yes! but ..&#x2F;stuff&#x2F;violin.php.</p>
+</blockquote>
+<p>继续修改网址。emm，网页题目叫<code>it&#39;s me. What do you want?</code>，内容是Leopold Mozart的画像。要做什么就很明了了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;http://www.pythonchallenge.com/pc/stuff/violin.php&#x27;</span></span><br><span class="line">headers = &#123;<span class="string">&#x27;Cookie&#x27;</span>:<span class="string">&#x27;info=the flowers are on their way&#x27;</span>&#125;</span><br><span class="line">r = requests.get(url, headers=headers)</span><br><span class="line"><span class="built_in">print</span>(r.text)</span><br></pre></td></tr></table></figure>
+
+<p>得到结果</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>it&#x27;s me. what do you want?<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span> <span class="attr">href</span>=<span class="string">&quot;../style.css&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">center</span>&gt;</span><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">&quot;gold&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;leopold.jpg&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">oh well, don&#x27;t you dare to forget the balloons.<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>替换为balloons即得到下一题地址了，哦对了，是在第17题题目的地址上替换，不是在Leopold画像的网页地址上替换</p>
+<h2><span id="level-18">Level 18</span></h2><p>Can you tell the difference?</p>
+<p>两张图片，亮度略有差别。源码中带有注释</p>
+<blockquote>
+<p>it is more obvious that what you might think</p>
+</blockquote>
+<p>那既然这么说，就试试luminance&#x2F;brightness咯。<code>brightness.html</code>页面没有区别，注释中内容变为了</p>
+<blockquote>
+<p>maybe consider deltas.gz</p>
+</blockquote>
+<p>替换地址，得到<code>deltas.gz</code>文件。处理<code>.gz</code>文件要用的应该就是<a target="_blank" rel="noopener" href="https://docs.python.org/3/library/gzip.html#module-gzip">gzip模块</a>了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gzip</span><br><span class="line"><span class="keyword">with</span> gzip.<span class="built_in">open</span>(<span class="string">&#x27;assets/deltas.gz&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    content = f.read().decode()</span><br><span class="line"><span class="built_in">print</span>(content)</span><br></pre></td></tr></table></figure>
+
+<p>得到的结果很有意思，分为了两栏，但行数有所差别，或许要比较的是这两栏的区别？那么要用的就是<a target="_blank" rel="noopener" href="https://docs.python.org/3/library/difflib.html#module-difflib">difflib模块</a>咯，去学习一下</p>
 
   </div>
   <footer class="article-footer">
