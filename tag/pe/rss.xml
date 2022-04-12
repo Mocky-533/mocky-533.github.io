@@ -33,7 +33,7 @@
  &lt;img src=&#34;https://s2.loli.net/2022/01/08/GExi9ohSjsAQROP.png&#34; alt=&#34;Use PE recovery to flash the build.&#34;&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;最后一个问题纯粹是自己手贱了属于，不要回锁bootloader！&lt;/p&gt;
-&lt;p&gt; 官方教程&lt;a href=&#34;https://wiki.pixelexperience.org/devices/kebab/install/#post-install-instructions&#34;&gt;Post-install instructions&lt;/a&gt;中提到了刷入 &lt;code&gt;avb_custom_key&lt;/code&gt;后可回锁，切记切记要确认成功刷入后再回锁！昨天avb_custom_key下载失败，得到的只是一个空文件，我没有查看是否成功刷入直接进行了回锁，结果自然是一个鲜艳的红色感叹号，和那句令人窒息的”your device is corrupt. It can’t be trusted and will not boot”&lt;/p&gt;
+&lt;p&gt; 官方教程&lt;a href=&#34;https://wiki.pixelexperience.org/devices/kebab/install/#post-install-instructions&#34;&gt;Post-install instructions&lt;/a&gt;中提到了刷入 &lt;code&gt;avb_custom_key&lt;/code&gt;后可回锁，切记切记要确认成功刷入后再回锁！昨天avb_custom_key下载失败，得到的只是一个空文件，我没有查看是否成功刷入直接进行了回锁，结果自然是一个鲜艳的红色感叹号，和那句令人窒息的&amp;quot;your device is corrupt. It can&amp;#39;t be trusted and will not boot&amp;quot;&lt;/p&gt;
 &lt;p&gt; 如果真的像我一样手贱回锁了，先别急，我昨天一通操作，居然进入了fastboot模式，然后又直接解锁了。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;步骤如下:&lt;/p&gt;
