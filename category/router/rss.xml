@@ -75,10 +75,6 @@
 &lt;h2&gt;&lt;span id=&#34;cao-zuo-guo-cheng&#34;&gt;操作过程&lt;/span&gt;&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;&lt;p&gt;勾选高级设置-系统管理-服务-启用ssh服务，windows可能会因为端口原因无法连接，打开对应端口即可&lt;/p&gt;
  &lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;ssh admin@192.168.123.1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;没有修改默认管理地址的话padavan的地址就是192.168.123.1，账号密码根据个人设置对应输入&lt;/p&gt;
-&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;进入路由器后，要先找到&lt;code&gt;/etc/storage/&lt;/code&gt;路径，因为其余路径在路由器重启后会自动恢复。脚本还要重复用呢是吧~&lt;/p&gt;
 &lt;/li&gt;

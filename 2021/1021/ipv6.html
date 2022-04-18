@@ -20,7 +20,7 @@
 <meta property="og:description" content="不知道什么原因，ipv6总是隔一段时间就掉线，重启路由器后又恢复正常。又因为个人有pt做种需求，ipv6又是不可或缺的条件，所以写个简单的脚本，当ipv6又断线时自动重启路由器">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-10-21T09:29:11.000Z">
-<meta property="article:modified_time" content="2022-03-30T13:50:08.416Z">
+<meta property="article:modified_time" content="2022-04-15T16:04:21.441Z">
 <meta property="article:author" content="Gerald">
 <meta property="article:tag" content="shell">
 <meta name="twitter:card" content="summary">
@@ -194,10 +194,6 @@
 <h2><span id="cao-zuo-guo-cheng">操作过程</span></h2><ol>
 <li><p>勾选高级设置-系统管理-服务-启用ssh服务，windows可能会因为端口原因无法连接，打开对应端口即可</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh admin@192.168.123.1</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>没有修改默认管理地址的话padavan的地址就是192.168.123.1，账号密码根据个人设置对应输入</p>
-</blockquote>
 </li>
 <li><p>进入路由器后，要先找到<code>/etc/storage/</code>路径，因为其余路径在路由器重启后会自动恢复。脚本还要重复用呢是吧~</p>
 </li>
