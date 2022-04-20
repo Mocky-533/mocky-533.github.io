@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+<title>Ipv6 Availability Checking Script on Padavan - Gerald&#39;s Cabin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
+
+
+<link href="/zh-cn/2021/ipv6" rel="alternate" hreflang="zh-CN" />
+    
+
+
+<meta name="description" content="">
+
+
+
+
+
+    <meta name="description" content="For some unknown reason, the ipv6 got offline once in a while. After rebooting, it turned just fine. I need ipv6 to do torrenting. So here comes the demand for a script for ipv6 availability checking.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ipv6 Availability Checking Script on Padavan">
+<meta property="og:url" content="https://mocky-533.github.io/2021/ipv6">
+<meta property="og:site_name" content="Gerald&#39;s Cabin">
+<meta property="og:description" content="For some unknown reason, the ipv6 got offline once in a while. After rebooting, it turned just fine. I need ipv6 to do torrenting. So here comes the demand for a script for ipv6 availability checking.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-10-21T09:29:11.000Z">
+<meta property="article:modified_time" content="2022-04-20T08:56:10.433Z">
+<meta property="article:author" content="Gerald">
+<meta property="article:tag" content="shell">
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+<link rel="icon" href="https://i.loli.net/2021/08/20/XPHhVQI95nz6NUB.png">
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+    
+<nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item navbar-logo" href="/">
+                
+                    
+                    Gerald&#39;s Cabin
+                    
+                
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu navbar-start">
+            
+            <a class="navbar-item "
+               href="/archives">Archives</a>
+            
+            <a class="navbar-item "
+               href="/categories">Categories</a>
+            
+            <a class="navbar-item "
+               href="/tags">Tags</a>
+            
+            <a class="navbar-item "
+               href="/about">About</a>
+            
+            <a class="navbar-item "
+               href="/rss.xml">RSS</a>
+            
+        </div>
+        
+        <div class="navbar-menu navbar-end">
+            <!-- 
+            <a class="navbar-item search" title="Search" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+             -->
+            
+            
+            <a class="navbar-item" title="GitHub" target="_blank" rel="noopener" href="https://github.com/Mocky-533">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+               
+            
+            
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-down is-right is-hoverable" style="margin-top: -0.2em;">
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span>English</span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            
+                <a href="/2021/ipv6" class="dropdown-item">
+                    English
+                </a>
+            
+                <a href="/zh-cn/2021/ipv6" class="dropdown-item">
+                    简体中文
+                </a>
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+</nav>
+
+    <section class="section">
+    <div class="container">
+    <article class="article content gallery" itemscope itemprop="blogPost">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+        
+            Ipv6 Availability Checking Script on Padavan
+        
+    </h1>
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
+        <span class="column is-narrow">
+            
+                <span>Oct 21 2021</span>
+            
+        </span>
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/router/">router</a>
+        </span>
+        <span class="column is-narrow article-tag">
+            <a class="article-tag-link" href="/tags/shell/">#shell</a>
+        </span>
+        
+        
+    </div>
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
+    
+        <p>For some unknown reason, the ipv6 got offline once in a while. After rebooting, it turned just fine. I need ipv6 to do torrenting. So here comes the demand for a script for ipv6 availability checking.</p>
+<span id="more"></span>
+
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">!/bin/sh</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">ipv6 check script, reboot <span class="hljs-keyword">if</span> fails</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">url=&lt;an ipv6-only site&gt;  || delete the <span class="hljs-string">&quot;#&quot;</span> to take effect or replace <span class="hljs-string">&apos;$url&apos;</span> with actual url down <span class="hljs-keyword">in</span> the corresponding <span class="hljs-built_in">command</span></span></span><br><span class="line">n=4</span><br><span class="line">timeout=1000</span><br><span class="line">logger -t &quot;[ipv6]&quot; &quot;check BEGIN&quot;</span><br><span class="line">ping -c $n -W $timeout $url</span><br><span class="line">if [ $? != 0 ];then</span><br><span class="line">    logger -t &quot;[ipv6]&quot; &quot;failed, try reboot&quot;</span><br><span class="line">    reboot</span><br><span class="line">else</span><br><span class="line">    logger -t &quot;[ipv6]&quot; &quot;working fine!&quot;</span><br><span class="line">fi</span><br><span class="line">exit 0</span><br></pre></td></tr></table></figure>
+
+<p>What it does is obvious. Noted that <code>logger -t</code> need two strings to display information in the log area. The script above displays informations as follows.</p>
+<figure class="highlight plaintext hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Oct 21 17:40:00 [ipv6]:  check BEGIN</span><br><span class="line">Oct 21 17:40:03 [ipv6]:  working fine</span><br></pre></td></tr></table></figure>
+
+<p>However, the log area could be filled with these two information, which is not ideal. <code>logger -t</code> sentence could be deleted after testing.<br>&#x5B9E;&#x9645;&#x4F7F;&#x7528;&#x4E2D;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;log&#x680F;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x88AB;&#x4EE5;&#x4E0A;&#x4E24;&#x6761;&#x5360;&#x6EE1;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x6D4B;&#x8BD5;&#x5B9E;&#x9645;&#x81EA;&#x52A8;&#x8FD0;&#x884C;&#x6B63;&#x5E38;&#x540E;&#x5C06;log&#x680F;&#x8F93;&#x51FA;&#x5220;&#x9664;&#x3002;</p>
+<h2><a href="#settings" class="header-anchor">#</a><span id="settings">Settings</span></h2><ol>
+<li><p>Check <code>Advaced settings</code>-<code>System settings</code>-<code>Services</code>-<code>Enable SSH</code>. SSH might not work properly on windows due to some reason about porting. Open the corresponding ports on windows should be the solution here.</p>
+ <figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh admin@192.168.123.1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Change directory to <code>/etc/storage/</code>. Files in other directories will be deleted after rebooting. We don&apos;t want our script to vanish, of course.</p>
+</li>
+<li><p><code>vi ipv6_check.sh</code>. Create a .sh script, and save the code above inside. The operations of vi is somewhat different from how we operate on windows.</p>
+</li>
+<li><p>The script is not written into the ROM if you did not run the mtd_storage script, because of some settings of Padavan firmware.<br> run <code>/sbin/mtd_storage.sh save</code> to save the modification.</p>
+</li>
+<li><p>Run script ragularly.<br> <code>system settings</code>-<code>Services</code>-<code>cron</code><br> input <code>*/10 * * * * /etc/storage/ipv6_check.sh</code> in the Cron tab. Run the script every 10 minutes.</p>
+</li>
+</ol>
+
+    
+    </div>
+    
+    <div class="columns is-variable is-1 is-multiline is-mobile">
+    
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/shell/">#shell</a></span>
+    
+    </div>
+    
+    
+    <div class="columns is-mobile is-multiline article-nav">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2022/8T-flashing">Flashing Pixel Experience into OP 8T</a>
+            
+        </span>
+        <span class="column is-12-mobile is-half-desktop  article-nav-next">
+            
+            <a href="/2021/pswbox">A Password Box by Python</a>
+            
+        </span>
+    </div>
+    
+</article>
+
+<!-- 
+<div class="sharebox">
+    
+<div class="notification is-danger">
+    You need to set <code>install_url</code> to use ShareThis. Please set it in <code>_config.yml</code>.
+</div>
+
+</div>
+
+
+
+<div class="comments">
+    <h3 class="title is-4">Comments</h3>
+    
+<div id="disqus_thread">
+    
+    <div class="notification is-danger">
+        You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.
+    </div>
+    
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</div>
+ -->
+    </div>
+</section>
+    <footer class="footer">
+    <div class="container">
+        <div class="columns content">
+            <div class="column is-narrow has-text-centered">
+                &copy; 2022 Gerald&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        target="_blank" rel="noopener" href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+            </div>
+            <div class="column is-hidden-mobile"></div>
+
+            
+            <div class="column is-narrow">
+                <div class="columns is-mobile is-multiline is-centered">
+                
+                    
+                <a class="column is-narrow has-text-black" title="GitHub" target="_blank" rel="noopener" href="https://github.com/Mocky-533">
+                    
+                    GitHub
+                    
+                </a>
+                
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+
+<!-- test if the browser is outdated -->
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // plugin function, place inside DOM ready function
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        })
+    });
+</script>
+
+<script>
+    window.FontAwesomeConfig = {
+        searchPseudoElements: true
+    }
+    moment.locale("en-AU");
+</script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+</script>
+
+    
+    
+    
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/js/lightgallery-all.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/js/jquery.justifiedGallery.min.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(function () {
+            if (typeof($.fn.lightGallery) === 'function') {
+                $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery').justifiedGallery();
+            }
+        });
+    })(jQuery);
+</script>
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <style>
+        .hljs {
+            position: relative;
+        }
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
+        }
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
+            display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
+        }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
+          var code = figure.querySelector('.code');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
+          copyButton.addClass('clipboard-btn');
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
+        })
+
+        var clipboard = new ClipboardJS('.clipboard-btn', {
+          target: function(trigger) {
+            return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+          }
+        });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
+      })
+    </script>
+
+    
+    
+
+    
+
+
+
+<script src="/js/script.js"></script>
+
+
+    <!-- 
+    <div class="searchbox ins-search">
+    <div class="searchbox-mask"></div>
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+     -->
+</body>
+</html>
