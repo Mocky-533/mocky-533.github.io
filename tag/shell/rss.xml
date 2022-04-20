@@ -49,9 +49,9 @@
 &lt;li&gt;mysql rebooting continuously. Try running mysql in ssh terminal. It says there might be some database missing. Change directory to  &lt;code&gt;/opt/bin&lt;/code&gt; and run &lt;code&gt;mysql_install_db&lt;/code&gt;. This will re-initialize the mysql database, and everything will be fine.&lt;/li&gt;
 &lt;li&gt;phpmyadmin might fail. Try replacing &lt;code&gt;$cfg[&amp;apos;Servers&amp;apos;][$i][&amp;apos;host&amp;apos;] = &amp;apos;localhost&amp;apos;;&lt;/code&gt; with &lt;code&gt;$cfg[&amp;apos;Servers&amp;apos;][$i][&amp;apos;host&amp;apos;] = &amp;apos;127.0.0.1&amp;apos;;&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2&gt;&lt;a href=&#34;#present-situation&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;&lt;span id=&#34;present-situation&#34;&gt;Present Situation&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://s2.loli.net/2022/03/11/AfRPeDobru9Tz6B.gif&#34; alt=&#34;web view&#34;&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a href=&#34;#how-it-looks-like&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;&lt;span id=&#34;how-it-looks-like&#34;&gt;How it looks like&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;/img/Lychee.gif&#34; alt=&#34;web view&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Due to the gif recording method, the gif can&amp;apos;t display everything in detail. The pictures looks exactly as it should be in reality.&lt;/p&gt;
+&lt;p&gt;Due to the gif recording method, the gif can&amp;apos;t display everything in detail. The pictures look exactly as they should be in reality.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;em&gt;This is just a post to take some notes.&lt;/em&gt;&lt;/p&gt;
  ]]></description>

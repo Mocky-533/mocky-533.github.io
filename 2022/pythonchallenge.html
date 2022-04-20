@@ -25,23 +25,23 @@
 <meta property="og:site_name" content="Gerald&#39;s Cabin">
 <meta property="og:description" content="Just some notes&amp;#xFF0C;http:&#x2F;&#x2F;www.pythonchallenge.com&#x2F;">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://s2.loli.net/2022/03/30/EtYPRl3B9ALGCrU.png">
-<meta property="og:image" content="https://s2.loli.net/2022/03/30/jSZaMozwh12pA7K.png">
-<meta property="og:image" content="https://s2.loli.net/2022/03/31/up6kroOIvtNdMiE.png">
-<meta property="og:image" content="https://s2.loli.net/2022/04/01/hpOasHD6YtiycQK.png">
-<meta property="og:image" content="https://s2.loli.net/2022/04/18/zpaBiAvmuFPJU4T.png">
+<meta property="og:image" content="https://mocky-533.github.io/img/level5.png">
+<meta property="og:image" content="https://mocky-533.github.io/img/level6.png">
+<meta property="og:image" content="https://mocky-533.github.io/img/level9.png">
+<meta property="og:image" content="https://mocky-533.github.io/img/spiral.png">
+<meta property="og:image" content="https://mocky-533.github.io/img/ResponsHeaders.png">
 <meta property="article:published_time" content="2022-03-30T08:40:59.000Z">
-<meta property="article:modified_time" content="2022-04-20T07:22:29.457Z">
+<meta property="article:modified_time" content="2022-04-20T14:26:40.972Z">
 <meta property="article:author" content="Gerald">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2022/03/30/EtYPRl3B9ALGCrU.png">
+<meta name="twitter:image" content="https://mocky-533.github.io/img/level5.png">
 
 
 
 
 
-<link rel="icon" href="https://i.loli.net/2021/08/20/XPHhVQI95nz6NUB.png">
+<link rel="icon" href="/img/favicon.png">
 
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
@@ -251,7 +251,7 @@
 <blockquote>
 <p>Counter({&apos;)&apos;: 6186, &apos;@&apos;: 6157, &apos;(&apos;: 6154, &apos;]&apos;: 6152, &apos;#&apos;: 6115, &apos;_&apos;: 6112, &apos;[&apos;: 6108, &apos;}&apos;: 6105, &apos;%&apos;: 6104, &apos;!&apos;: 6079, &apos;+&apos;: 6066, &apos;$&apos;: 6046, &apos;{&apos;: 6046, &apos;&amp;&apos;: 6043, &apos;*&apos;: 6034, &apos;^&apos;: 6030, &apos;\n&apos;: 1219, &apos;e&apos;: 1, &apos;q&apos;: 1, &apos;u&apos;: 1, &apos;a&apos;: 1, &apos;l&apos;: 1, &apos;i&apos;: 1, &apos;t&apos;: 1, &apos;y&apos;: 1})</p>
 </blockquote>
-<p>OK, combine the charactors only shows up once, and there you get the url for next level.</p>
+<p>OK, combine the charactors only show up once, and there you get the url for next level.</p>
 <h2><a href="#level-3" class="header-anchor">#</a><span id="level-3">Level 3</span></h2><p>Again, obviously, this level demands regx. Taking a look at the source code is a must. Save those charactors to <code>assets/txt_for_3.txt</code> and let&apos;s go for it.</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> re</span><br><span class="line"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;assets/txt_for_3.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>) <span class="hljs-keyword">as</span> f:</span><br><span class="line">    line = f.read()</span><br><span class="line">reg=re.<span class="hljs-built_in">compile</span>(<span class="hljs-string">&apos;[a-z][A-Z]{3}[a-z][A-Z]{3}[a-z]&apos;</span>)</span><br><span class="line">url = reg.findall(line)</span><br><span class="line"><span class="hljs-keyword">for</span> u <span class="hljs-keyword">in</span> url:</span><br><span class="line">    <span class="hljs-built_in">print</span>(u[<span class="hljs-number">4</span>], end=<span class="hljs-string">&apos;&apos;</span>)</span><br></pre></td></tr></table></figure>
 
@@ -273,7 +273,7 @@
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> result:</span><br><span class="line">    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> i:</span><br><span class="line">        <span class="hljs-built_in">print</span>(j[<span class="hljs-number">0</span>] * j[<span class="hljs-number">1</span>], end = <span class="hljs-string">&apos;&apos;</span>)</span><br><span class="line">    <span class="hljs-built_in">print</span>(<span class="hljs-string">&apos;\n&apos;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>The output is</p>
-<img src="https://s2.loli.net/2022/03/30/EtYPRl3B9ALGCrU.png" alt="channel by # charactor" width="300px">
+<img src="/img/level5.png" alt="channel by # charactor" width="300px">
 
 <h2><a href="#level-6" class="header-anchor">#</a><span id="level-6">Level 6</span></h2><p>zip</p>
 <p>Change the url to <code>*.zip</code> and we get a file <code>channel.zip</code>. Unzip it, there&apos;s a <code>readme.txt</code>. Well, it&apos;s similiar to level 4.</p>
@@ -287,7 +287,7 @@
 <p>With 7zip, we can see the comment of each file. The lengths of those comments are the same, only one charactor. Now, let&apos;s have fun with the zip file. <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/zipfile.html"><code>zipfile</code></a> module is needed, of course.</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> zipfile</span><br><span class="line">num = <span class="hljs-string">&quot;90052&quot;</span></span><br><span class="line">comments = []</span><br><span class="line">f = zipfile.ZipFile(<span class="hljs-string">&quot;assets/channel.zip&quot;</span>)   <span class="hljs-comment"># open zip file</span></span><br><span class="line"><span class="hljs-keyword">try</span>:</span><br><span class="line">    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:</span><br><span class="line">        filepath = num + <span class="hljs-string">&quot;.txt&quot;</span></span><br><span class="line">        line = f.read(filepath).decode(<span class="hljs-string">&quot;utf-8&quot;</span>) <span class="hljs-comment"># read txt file inside</span></span><br><span class="line">        comment = f.getinfo(filepath).comment.decode(<span class="hljs-string">&quot;utf-8&quot;</span>)     <span class="hljs-comment"># comment of txt file</span></span><br><span class="line">        num = line.split(<span class="hljs-string">&quot; &quot;</span>)[-<span class="hljs-number">1</span>]</span><br><span class="line">        comments.append(comment)</span><br><span class="line"><span class="hljs-keyword">except</span> KeyError:</span><br><span class="line">    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;&quot;</span>.join(comments))</span><br></pre></td></tr></table></figure>
 
-<img src="https://s2.loli.net/2022/03/30/jSZaMozwh12pA7K.png" alt="level6" width="300px">
+<img src="/img/level6.png" alt="level6" width="300px">
 
 <p>Replace the url with <code>hockey</code>. It says <code>it&apos;s in the air. look at the letters.</code> Well, ya know what to do.</p>
 <h2><a href="#level-7" class="header-anchor">#</a><span id="level-7">Level 7</span></h2><p>Just a picture, nothing in the source code. The information has to be in the picture, then.</p>
@@ -320,7 +320,7 @@
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">img = np.zeros((<span class="hljs-number">512</span>,<span class="hljs-number">512</span>,<span class="hljs-number">3</span>), np.uint8)</span><br></pre></td></tr></table></figure>
 
 <p>There it comes.</p>
-<img src="https://s2.loli.net/2022/03/31/up6kroOIvtNdMiE.png" alt="level9" width="300px">
+<img src="/img/level9.png" alt="level9" width="300px">
 
 <p>The answer lies in cow/bull/ox/cattle. Take your shots.</p>
 <h2><a href="#level-10" class="header-anchor">#</a><span id="level-10">Level 10</span></h2><p>There&apos;s a link on the body of the cow. It&apos;s a list which has no end, for now. <code>a = [1, 11, 21, 1211, 111221,</code>.</p>
@@ -384,7 +384,7 @@
 <p>Although it was displayed in the size of 100px*100px, the picture is actually in the size of 10000px*1px.</p>
 <p>What is the equation then?</p>
 <p>For example, here&apos;s a picture of 5px*5px. When you walk from the outside of it, and spirally inside, as shown below.</p>
-<img src="https://s2.loli.net/2022/04/01/hpOasHD6YtiycQK.png" width="300px" alt="spiral">
+<img src="/img/spiral.png" width="300px" alt="spiral">
 
 <p>the &quot;steps&quot; you make until you make a turn is 5,4,4,3,3,2,2,1,1</p>
 <p>Now, let&apos;s try 100px*100px, the equation can be deducted.</p>
@@ -519,7 +519,7 @@
 </blockquote>
 <p>OK, We have it.</p>
 <h2><a href="#level-20" class="header-anchor">#</a><span id="level-20">Level 20</span></h2><p>Well, I have no idea what to do. Again, I learned something during the searching online.</p>
-<img src="https://s2.loli.net/2022/04/18/zpaBiAvmuFPJU4T.png" alt="response headers">
+<img src="/img/ResponsHeaders.png" alt="response headers">
 
 <p>The picture above is the response header of <code>unreal.jpg</code>. Now we modify the <code>Range</code> value in the request header to get access to files of other range.</p>
 <p>It&apos;s clear that during 0-30202 bytes lies <code>unreal.jpg</code>. Let&apos;s go on to the next section. Set <code>Range</code> to <code>bytes=30203-</code></p>
