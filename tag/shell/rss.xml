@@ -7,7 +7,7 @@
         <language>en,zh-cn,default</language>
         <pubDate>Fri, 04 Mar 2022 20:32:58 +0800</pubDate>
         <lastBuildDate>Fri, 04 Mar 2022 20:32:58 +0800</lastBuildDate>
-        <category>PE</category>
+        <category>Pixel Experience</category>
         <category>shell</category>
         <category>python</category>
         <item>
@@ -49,7 +49,7 @@
 &lt;li&gt;mysql rebooting continuously. Try running mysql in ssh terminal. It says there might be some database missing. Change directory to  &lt;code&gt;/opt/bin&lt;/code&gt; and run &lt;code&gt;mysql_install_db&lt;/code&gt;. This will re-initialize the mysql database, and everything will be fine.&lt;/li&gt;
 &lt;li&gt;phpmyadmin might fail. Try replacing &lt;code&gt;$cfg[&amp;apos;Servers&amp;apos;][$i][&amp;apos;host&amp;apos;] = &amp;apos;localhost&amp;apos;;&lt;/code&gt; with &lt;code&gt;$cfg[&amp;apos;Servers&amp;apos;][$i][&amp;apos;host&amp;apos;] = &amp;apos;127.0.0.1&amp;apos;;&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2&gt;&lt;a href=&#34;#how-it-looks-like&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;&lt;span id=&#34;how-it-looks-like&#34;&gt;How it looks like&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;/img/Lychee.gif&#34; alt=&#34;web view&#34;&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a href=&#34;#what-it-looks-like&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;&lt;span id=&#34;what-it-looks-like&#34;&gt;What it looks like&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;/img/Lychee.gif&#34; alt=&#34;web view&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Due to the gif recording method, the gif can&amp;apos;t display everything in detail. The pictures look exactly as they should be in reality.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -95,7 +95,7 @@
 &lt;li&gt;&amp;#x4E00;&amp;#x5207;&amp;#x51C6;&amp;#x5907;&amp;#x597D;&amp;#x540E;&amp;#x8DEF;&amp;#x7531;&amp;#x5668;log&amp;#x680F;&amp;#x4E2D;&amp;#x53D1;&amp;#x73B0;mysql&amp;#x4ECD;&amp;#x4E0D;&amp;#x505C;&amp;#x91CD;&amp;#x542F;&amp;#xFF0C;ssh&amp;#x7EC8;&amp;#x7AEF;&amp;#x8FD0;&amp;#x884C;mysql&amp;#x540E;&amp;#x53D1;&amp;#x73B0;&amp;#x7F3A;&amp;#x5C11;mysql&amp;#x5E93;&amp;#xFF0C;&amp;#x5927;&amp;#x6982;&amp;#x662F;&amp;#x672C;&amp;#x5730;&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x521D;&amp;#x59CB;&amp;#x5316;&amp;#x672A;&amp;#x5B8C;&amp;#x6210;&amp;#x7684;&amp;#x539F;&amp;#x56E0;&amp;#xFF0C;&amp;#x627E;&amp;#x5230;&lt;code&gt;mysql&lt;/code&gt;&amp;#x4E0B;&amp;#x7684;&lt;code&gt;bin&lt;/code&gt;&amp;#x76EE;&amp;#x5F55;&amp;#xFF0C;&amp;#xFF08;padavan&amp;#x7CFB;&amp;#x7EDF;&amp;#x4E3A;&lt;code&gt;/opt/bin&lt;/code&gt;&amp;#x76EE;&amp;#x5F55;&amp;#xFF09;&amp;#x8FD0;&amp;#x884C;&lt;code&gt;mysql_install_db&lt;/code&gt;&amp;#xFF0C;&amp;#x91CD;&amp;#x65B0;&amp;#x521D;&amp;#x59CB;&amp;#x5316;mysql&amp;#x5E93;&amp;#x540E;&amp;#x6062;&amp;#x590D;&amp;#x6B63;&amp;#x5E38;&lt;/li&gt;
 &lt;li&gt;&amp;#x51E0;&amp;#x6B21;&amp;#x8FD0;&amp;#x884C;&amp;#x540E;&amp;#x53D1;&amp;#x73B0;&amp;#x6709;&amp;#x65F6;phpmyadmin&amp;#x65E0;&amp;#x6CD5;&amp;#x8FDB;&amp;#x5165;&amp;#xFF0C;&amp;#x8BD5;&amp;#x4E86;&amp;#x8BD5;&amp;#x628A;phpmyadmin config&amp;#x4E2D;&amp;#x7684;&lt;code&gt;$cfg[&amp;apos;Servers&amp;apos;][$i][&amp;apos;host&amp;apos;] = &amp;apos;localhost&amp;apos;;&lt;/code&gt;&amp;#x66F4;&amp;#x6539;&amp;#x4E3A;&lt;code&gt;$cfg[&amp;apos;Servers&amp;apos;][$i][&amp;apos;host&amp;apos;] = &amp;apos;127.0.0.1&amp;apos;;&lt;/code&gt;&amp;#x540E;&amp;#x8FD0;&amp;#x884C;&amp;#x6B63;&amp;#x5E38;&amp;#x3002;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2&gt;&lt;a href=&#34;#hou-ji&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;&lt;span id=&#34;hou-ji&#34;&gt;&amp;#x540E;&amp;#x8BB0;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;&amp;#x4F7F;&amp;#x7528;&amp;#x6548;&amp;#x679C;&lt;br&gt;&lt;img src=&#34;https://s2.loli.net/2022/03/11/AfRPeDobru9Tz6B.gif&#34; alt=&#34;web view&#34;&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;a href=&#34;#hou-ji&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;&lt;span id=&#34;hou-ji&#34;&gt;&amp;#x540E;&amp;#x8BB0;&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;&amp;#x4F7F;&amp;#x7528;&amp;#x6548;&amp;#x679C;&lt;br&gt;&lt;img src=&#34;/img/Lychee.gif&#34; alt=&#34;web view&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;gif&amp;#x5F55;&amp;#x5236;&amp;#x538B;&amp;#x7F29;&amp;#x539F;&amp;#x56E0;&amp;#xFF0C;&amp;#x56FE;&amp;#x7247;&amp;#x5931;&amp;#x771F;&amp;#x4E25;&amp;#x91CD;&amp;#xFF0C;&amp;#x5B9E;&amp;#x9645;&amp;#x67E5;&amp;#x770B;&amp;#x65F6;&amp;#x56FE;&amp;#x7247;&amp;#x5206;&amp;#x8FA8;&amp;#x7387;&amp;#x4FDD;&amp;#x6301;&amp;#x56FE;&amp;#x7247;&amp;#x6E90;&amp;#x5206;&amp;#x8FA8;&amp;#x7387;&lt;br&gt;&lt;em&gt;&amp;#x6B64;&amp;#x7BC7;&amp;#x53EA;&amp;#x505A;&amp;#x8BB0;&amp;#x5F55;&amp;#x7528;&amp;#xFF0C;&amp;#x4EE5;&amp;#x65B9;&amp;#x4FBF;&amp;#x518D;&amp;#x6298;&amp;#x817E;&amp;#x5176;&amp;#x4ED6;&amp;#x529F;&amp;#x80FD;&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;

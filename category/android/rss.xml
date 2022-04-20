@@ -7,14 +7,14 @@
         <language>en,zh-cn,default</language>
         <pubDate>Sat, 08 Jan 2022 18:11:02 +0800</pubDate>
         <lastBuildDate>Sat, 08 Jan 2022 18:11:02 +0800</lastBuildDate>
-        <category>PE</category>
+        <category>Pixel Experience</category>
         <category>shell</category>
         <category>python</category>
         <item>
             <guid isPermalink="true">https://mocky-533.github.io/2022/8T-flashing</guid>
             <title>Flashing Pixel Experience into OP 8T</title>
             <link>https://mocky-533.github.io/2022/8T-flashing</link>
-            <category>PE</category>
+            <category>Pixel Experience</category>
             <pubDate>Sat, 08 Jan 2022 18:11:02 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;I flashed &lt;a href=&#34;https://download.pixelexperience.org/&#34;&gt;Pixel Experience&lt;/a&gt; into my OP 8T recently. Here&amp;apos;re some problems I ran into.&lt;/p&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
@@ -22,15 +22,15 @@
 &lt;h2&gt;&lt;a href=&#34;#flashing-pixel-experience&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;&lt;span id=&#34;flashing-pixel-experience&#34;&gt;Flashing Pixel Experience&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;The information in the &lt;a href=&#34;https://wiki.pixelexperience.org/devices/kebab/install&#34;&gt;Pixel Experience Official Instructions&lt;/a&gt; has covered about everything needed when flashing.&lt;/p&gt;
 &lt;p&gt;Here&amp;apos;re some problems I ran into. Actually, various solutions can be found online. I&amp;apos;ll take down some useful methods here, so I do not have to search for it again.&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;No device when running &lt;code&gt;fastboot devices&lt;/code&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;No device found when running &lt;code&gt;fastboot devices&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt; It is a driver issue. Install the &lt;code&gt;Android Bootloader Interface&lt;/code&gt; driver will do the trick.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;The &lt;code&gt;copy-partitions-20210323_1922.zip&lt;/code&gt; file mentioned in the &lt;a href=&#34;https://wiki.pixelexperience.org/devices/kebab/install/#pre-install-instructions&#34;&gt;pre-install instructions&lt;/a&gt; section couldn&amp;apos;t be downloaded.&lt;/p&gt;
-&lt;p&gt; There&amp;apos;s not this file in the original repo. This is a &lt;a href=&#34;https://androidfilehost.com/?fid=2188818919693768129&#34;&gt;subsitude&lt;/a&gt;. Everything works just fine with it.&lt;/p&gt;
+&lt;p&gt; This file does not exist in the original repo. This is a &lt;a href=&#34;https://androidfilehost.com/?fid=2188818919693768129&#34;&gt;subsitude&lt;/a&gt;. Everything works just fine with it.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;The PE recovery could not flash the firmware. Error code &lt;code&gt;error in /sideload/package.zip (status 1)&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt; I have no idea what triggered it. By switching to &lt;a href=&#34;https://twrp.me/&#34;&gt;twrp recovery&lt;/a&gt; the flashing is just fine. Although the instructions says other ways.&lt;/p&gt;
- &lt;img src=&#34;https://s2.loli.net/2022/01/08/GExi9ohSjsAQROP.png&#34; alt=&#34;Use PE recovery to flash the build.&#34;&gt;
+&lt;p&gt; I have no idea what triggered it. By switching to &lt;a href=&#34;https://twrp.me/&#34;&gt;twrp recovery&lt;/a&gt;, the flashing progress went on just fine. Although the instructions says the other ways.&lt;/p&gt;
+ &lt;img src=&#34;/img/PE.png&#34; alt=&#34;Use PE recovery to flash the build.&#34;&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Don&amp;apos;t relock bootloader&lt;/p&gt;
 &lt;p&gt; It was mentioned in the &lt;a href=&#34;https://wiki.pixelexperience.org/devices/kebab/install/#post-install-instructions&#34;&gt;Post-install instructions&lt;/a&gt;that relock will be okay after flashing &lt;code&gt;avb_custom_key&lt;/code&gt;. Remember, you need to be sure you have succeeded flashing the &lt;code&gt;avb_custom_key&lt;/code&gt;. I didn&amp;apos;t. Hence the horrifying &amp;quot;your device is corrupt. It can&amp;apos;t be trusted and will not boot&amp;quot; shows up.&lt;/p&gt;
@@ -69,7 +69,7 @@
             <guid isPermalink="true">https://mocky-533.github.io/2022/zh-cn/8T-flashing</guid>
             <title>一加8T刷机(作死)历程</title>
             <link>https://mocky-533.github.io/2022/zh-cn/8T-flashing</link>
-            <category>PE</category>
+            <category>Pixel Experience</category>
             <pubDate>Sat, 08 Jan 2022 18:11:02 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;&amp;#x6628;&amp;#x5929;&amp;#x628A;&amp;#x624B;&amp;#x91CC;&amp;#x7684;8T&amp;#x5237;&amp;#x4E86;&lt;a href=&#34;https://download.pixelexperience.org/&#34;&gt;Pixel Experience&lt;/a&gt;&amp;#xFF0C;&amp;#x7B80;&amp;#x5355;&amp;#x8BB0;&amp;#x5F55;&amp;#x4E00;&amp;#x4E0B;&amp;#x9047;&amp;#x5230;&amp;#x7684;&amp;#x51E0;&amp;#x4E2A;&amp;#x95EE;&amp;#x9898;&amp;#x3002;&lt;/p&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
@@ -85,7 +85,7 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;PE&amp;#x5B98;&amp;#x65B9;&amp;#x63D0;&amp;#x4F9B;&amp;#x7684;recovery&amp;#x955C;&amp;#x50CF;&amp;#x65E0;&amp;#x6CD5;&amp;#x5237;&amp;#x5165;Pixel Experience&amp;#x56FA;&amp;#x4EF6;&amp;#xFF0C;&amp;#x624B;&amp;#x673A;&amp;#x7AEF;&amp;#x8FD4;&amp;#x56DE;&amp;#x7684;&amp;#x9519;&amp;#x8BEF;&amp;#x7801;&amp;#x4E3A;&lt;code&gt;error in /sideload/package.zip (status 1)&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt; &amp;#x8FD9;&amp;#x4E2A;&amp;#x539F;&amp;#x56E0;&amp;#x6211;&amp;#x4E5F;&amp;#x65E0;&amp;#x4ECE;&amp;#x5F97;&amp;#x77E5;&amp;#x4E86;&amp;#xFF0C;&amp;#x5728;xda&amp;#x4E0A;&amp;#x8349;&amp;#x8349;&amp;#x770B;&amp;#x4E86;&amp;#x4E00;&amp;#x773C;&amp;#x5C31;&amp;#x6539;&amp;#x7528;&lt;a href=&#34;https://twrp.me/&#34;&gt;twrp recovery&lt;/a&gt;&amp;#x8FDB;&amp;#x884C;&amp;#x5237;&amp;#x5165;&amp;#x4E86;&amp;#xFF0C;&amp;#x4E00;&amp;#x5207;&amp;#x6B63;&amp;#x5E38;&amp;#x3002;&amp;#x867D;&amp;#x7136;&amp;#x5728;PE&amp;#x5B98;&amp;#x7F51;&amp;#x7684;&amp;#x56FA;&amp;#x4EF6;changelog&amp;#x4E2D;&amp;#x662F;&amp;#x63D0;&amp;#x5230;&amp;#x7528;PE&amp;#x7684;recovery&amp;#x8FDB;&amp;#x884C;&amp;#x5237;&amp;#x5165;^.^&lt;/p&gt;
- &lt;img src=&#34;https://s2.loli.net/2022/01/08/GExi9ohSjsAQROP.png&#34; alt=&#34;Use PE recovery to flash the build.&#34;&gt;
+ &lt;img src=&#34;/img/PE.png&#34; alt=&#34;Use PE recovery to flash the build.&#34;&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&amp;#x6700;&amp;#x540E;&amp;#x4E00;&amp;#x4E2A;&amp;#x95EE;&amp;#x9898;&amp;#x7EAF;&amp;#x7CB9;&amp;#x662F;&amp;#x81EA;&amp;#x5DF1;&amp;#x624B;&amp;#x8D31;&amp;#x4E86;&amp;#x5C5E;&amp;#x4E8E;&amp;#xFF0C;&amp;#x4E0D;&amp;#x8981;&amp;#x56DE;&amp;#x9501;bootloader&amp;#xFF01;&lt;/p&gt;
 &lt;p&gt; &amp;#x5B98;&amp;#x65B9;&amp;#x6559;&amp;#x7A0B;&lt;a href=&#34;https://wiki.pixelexperience.org/devices/kebab/install/#post-install-instructions&#34;&gt;Post-install instructions&lt;/a&gt;&amp;#x4E2D;&amp;#x63D0;&amp;#x5230;&amp;#x4E86;&amp;#x5237;&amp;#x5165; &lt;code&gt;avb_custom_key&lt;/code&gt;&amp;#x540E;&amp;#x53EF;&amp;#x56DE;&amp;#x9501;&amp;#xFF0C;&amp;#x5207;&amp;#x8BB0;&amp;#x5207;&amp;#x8BB0;&amp;#x8981;&amp;#x786E;&amp;#x8BA4;&amp;#x6210;&amp;#x529F;&amp;#x5237;&amp;#x5165;&amp;#x540E;&amp;#x518D;&amp;#x56DE;&amp;#x9501;&amp;#xFF01;&amp;#x6628;&amp;#x5929;avb_custom_key&amp;#x4E0B;&amp;#x8F7D;&amp;#x5931;&amp;#x8D25;&amp;#xFF0C;&amp;#x5F97;&amp;#x5230;&amp;#x7684;&amp;#x53EA;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x7A7A;&amp;#x6587;&amp;#x4EF6;&amp;#xFF0C;&amp;#x6211;&amp;#x6CA1;&amp;#x6709;&amp;#x67E5;&amp;#x770B;&amp;#x662F;&amp;#x5426;&amp;#x6210;&amp;#x529F;&amp;#x5237;&amp;#x5165;&amp;#x76F4;&amp;#x63A5;&amp;#x8FDB;&amp;#x884C;&amp;#x4E86;&amp;#x56DE;&amp;#x9501;&amp;#xFF0C;&amp;#x7ED3;&amp;#x679C;&amp;#x81EA;&amp;#x7136;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x9C9C;&amp;#x8273;&amp;#x7684;&amp;#x7EA2;&amp;#x8272;&amp;#x611F;&amp;#x53F9;&amp;#x53F7;&amp;#xFF0C;&amp;#x548C;&amp;#x90A3;&amp;#x53E5;&amp;#x4EE4;&amp;#x4EBA;&amp;#x7A92;&amp;#x606F;&amp;#x7684;&amp;quot;your device is corrupt. It can&amp;apos;t be trusted and will not boot&amp;quot;&lt;/p&gt;

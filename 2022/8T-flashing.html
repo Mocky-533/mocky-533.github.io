@@ -25,13 +25,13 @@
 <meta property="og:site_name" content="Gerald&#39;s Cabin">
 <meta property="og:description" content="I flashed Pixel Experience into my OP 8T recently. Here&amp;apos;re some problems I ran into.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://s2.loli.net/2022/01/08/GExi9ohSjsAQROP.png">
+<meta property="og:image" content="https://mocky-533.github.io/img/PE.png">
 <meta property="article:published_time" content="2022-01-08T10:11:02.000Z">
-<meta property="article:modified_time" content="2022-04-20T08:30:28.196Z">
+<meta property="article:modified_time" content="2022-04-20T14:41:05.693Z">
 <meta property="article:author" content="Gerald">
-<meta property="article:tag" content="PE">
+<meta property="article:tag" content="Pixel Experience">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2022/01/08/GExi9ohSjsAQROP.png">
+<meta name="twitter:image" content="https://mocky-533.github.io/img/PE.png">
 
 
 
@@ -179,7 +179,7 @@
             <a class="article-category-link" href="/categories/Android/">Android</a>
         </span>
         <span class="column is-narrow article-tag">
-            <a class="article-tag-link" href="/tags/PE/">#PE</a>
+            <a class="article-tag-link" href="/tags/Pixel-Experience/">#Pixel Experience</a>
         </span>
         
         
@@ -192,15 +192,15 @@
 <h2><a href="#flashing-pixel-experience" class="header-anchor">#</a><span id="flashing-pixel-experience">Flashing Pixel Experience</span></h2><p>The information in the <a target="_blank" rel="noopener" href="https://wiki.pixelexperience.org/devices/kebab/install">Pixel Experience Official Instructions</a> has covered about everything needed when flashing.</p>
 <p>Here&apos;re some problems I ran into. Actually, various solutions can be found online. I&apos;ll take down some useful methods here, so I do not have to search for it again.</p>
 <ol>
-<li><p>No device when running <code>fastboot devices</code></p>
+<li><p>No device found when running <code>fastboot devices</code></p>
 <p> It is a driver issue. Install the <code>Android Bootloader Interface</code> driver will do the trick.</p>
 </li>
 <li><p>The <code>copy-partitions-20210323_1922.zip</code> file mentioned in the <a target="_blank" rel="noopener" href="https://wiki.pixelexperience.org/devices/kebab/install/#pre-install-instructions">pre-install instructions</a> section couldn&apos;t be downloaded.</p>
-<p> There&apos;s not this file in the original repo. This is a <a target="_blank" rel="noopener" href="https://androidfilehost.com/?fid=2188818919693768129">subsitude</a>. Everything works just fine with it.</p>
+<p> This file does not exist in the original repo. This is a <a target="_blank" rel="noopener" href="https://androidfilehost.com/?fid=2188818919693768129">subsitude</a>. Everything works just fine with it.</p>
 </li>
 <li><p>The PE recovery could not flash the firmware. Error code <code>error in /sideload/package.zip (status 1)</code></p>
-<p> I have no idea what triggered it. By switching to <a target="_blank" rel="noopener" href="https://twrp.me/">twrp recovery</a> the flashing is just fine. Although the instructions says other ways.</p>
- <img src="https://s2.loli.net/2022/01/08/GExi9ohSjsAQROP.png" alt="Use PE recovery to flash the build.">
+<p> I have no idea what triggered it. By switching to <a target="_blank" rel="noopener" href="https://twrp.me/">twrp recovery</a>, the flashing progress went on just fine. Although the instructions says the other ways.</p>
+ <img src="/img/PE.png" alt="Use PE recovery to flash the build.">
 </li>
 <li><p>Don&apos;t relock bootloader</p>
 <p> It was mentioned in the <a target="_blank" rel="noopener" href="https://wiki.pixelexperience.org/devices/kebab/install/#post-install-instructions">Post-install instructions</a>that relock will be okay after flashing <code>avb_custom_key</code>. Remember, you need to be sure you have succeeded flashing the <code>avb_custom_key</code>. I didn&apos;t. Hence the horrifying &quot;your device is corrupt. It can&apos;t be trusted and will not boot&quot; shows up.</p>
@@ -239,7 +239,7 @@
     
     <div class="columns is-variable is-1 is-multiline is-mobile">
     
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/PE/">#PE</a></span>
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/Pixel-Experience/">#Pixel Experience</a></span>
     
     </div>
     

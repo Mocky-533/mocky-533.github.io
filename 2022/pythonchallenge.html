@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://mocky-533.github.io/img/spiral.png">
 <meta property="og:image" content="https://mocky-533.github.io/img/ResponsHeaders.png">
 <meta property="article:published_time" content="2022-03-30T08:40:59.000Z">
-<meta property="article:modified_time" content="2022-04-20T14:26:40.972Z">
+<meta property="article:modified_time" content="2022-04-20T14:32:54.429Z">
 <meta property="article:author" content="Gerald">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
@@ -344,7 +344,7 @@
 
 <p>Well, it doesn&apos;t work.</p>
 <p>OH, &quot;dealing&quot; cards. Maybe we should split the <code>evil2.gfx</code> into several files.</p>
-<p>Try split into 2 files all the way to 5 files. And finally some visible image. The answers are in the pictures.</p>
+<p>Try to split it into 2 files all the way to 5 files. And finally some visible image. The answers are in the pictures.</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;assets/evil2.gfx&quot;</span>, <span class="hljs-string">&quot;rb&quot;</span>) <span class="hljs-keyword">as</span> f:</span><br><span class="line">    text = f.read()</span><br><span class="line"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>):</span><br><span class="line">    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">f&apos;assets/<span class="hljs-subst">{i}</span>.jpg&apos;</span>, <span class="hljs-string">&apos;wb&apos;</span>) <span class="hljs-keyword">as</span> f:</span><br><span class="line">        f.write(text[i::<span class="hljs-number">5</span>])</span><br></pre></td></tr></table></figure>
 
 <p>Wait, what does <code>evil1.jpg</code> do? Well, all the cards are <code>5</code>, could be a hint I ignored...</p>
@@ -456,7 +456,7 @@
 <blockquote>
 <p>no! i mean yes! but ../stuff/violin.php.</p>
 </blockquote>
-<p>Go on. Well, the page is called <code>it&apos;s me. What do you want?</code> The content of the page is a portrait of Leopold Mozart. It&apos;s obvious that we should communicate with him then. Try modify the cookies of the page.</p>
+<p>Go on. Well, the page is called <code>it&apos;s me. What do you want?</code> The content of the page is a portrait of Leopold Mozart. It&apos;s obvious that we should communicate with him then. Try modifying the cookies of the page.</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">&apos;http://www.pythonchallenge.com/pc/stuff/violin.php&apos;</span></span><br><span class="line">headers = {<span class="hljs-string">&apos;Cookie&apos;</span>:<span class="hljs-string">&apos;info=the flowers are on their way&apos;</span>}</span><br><span class="line">r = requests.get(url, headers=headers)</span><br><span class="line"><span class="hljs-built_in">print</span>(r.text)</span><br></pre></td></tr></table></figure>
 
 <p>And we get the result of</p>
@@ -518,11 +518,11 @@
 <p>&quot;you are an idiot~ ah, ah, ah, ah ...</p>
 </blockquote>
 <p>OK, We have it.</p>
-<h2><a href="#level-20" class="header-anchor">#</a><span id="level-20">Level 20</span></h2><p>Well, I have no idea what to do. Again, I learned something during the searching online.</p>
+<h2><a href="#level-20" class="header-anchor">#</a><span id="level-20">Level 20</span></h2><p>Well, I have no idea what to do. Again, I learned something during searching online.</p>
 <img src="/img/ResponsHeaders.png" alt="response headers">
 
-<p>The picture above is the response header of <code>unreal.jpg</code>. Now we modify the <code>Range</code> value in the request header to get access to files of other range.</p>
-<p>It&apos;s clear that during 0-30202 bytes lies <code>unreal.jpg</code>. Let&apos;s go on to the next section. Set <code>Range</code> to <code>bytes=30203-</code></p>
+<p>The picture above is the response header of <code>unreal.jpg</code>. Now if we modify the <code>Range</code> value in the request header, we&apos;ll get access to files of other range.</p>
+<p>It&apos;s clear that between 0 and 30202 bytes lies <code>unreal.jpg</code>. Let&apos;s go on to the next section. Set <code>Range</code> value to <code>bytes=30203-</code></p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> requests, base64</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">&apos;http://www.pythonchallenge.com/pc/hex/unreal.jpg&apos;</span></span><br><span class="line">cred = base64.b64encode(<span class="hljs-string">b&quot;butter:fly&quot;</span>)</span><br><span class="line">requests.auth.HTTPBasicAuth(<span class="hljs-string">&quot;butter&quot;</span>, <span class="hljs-string">&quot;fly&quot;</span>)</span><br><span class="line">headers = {<span class="hljs-string">&apos;Authorization&apos;</span>: <span class="hljs-string">f&quot;Basic <span class="hljs-subst">{cred.decode()}</span>&quot;</span>, <span class="hljs-string">&apos;Range&apos;</span>:<span class="hljs-string">&apos;bytes=30203-&apos;</span>}</span><br><span class="line"></span><br><span class="line">r = requests.get(url, headers=headers)</span><br><span class="line"><span class="hljs-built_in">print</span>(r.headers)</span><br><span class="line"><span class="hljs-built_in">print</span>(r.content.decode())</span><br></pre></td></tr></table></figure>
 
 <blockquote>
@@ -581,7 +581,7 @@
 <p>{&apos;Connection&apos;: &apos;close&apos;, &apos;Content-Length&apos;: &apos;239733&apos;, &apos;Content-Range&apos;: &apos;bytes 1152983631-1153223363/2123456789&apos;, &apos;Content-Transfer-Encoding&apos;: &apos;binary&apos;, &apos;Content-Type&apos;: &apos;application/octet-stream&apos;, &apos;Date&apos;: &apos;Mon, 18 Apr 2022 14:30:03 GMT&apos;, &apos;Server&apos;: &apos;lighttpd/1.4.55&apos;}<br>b&apos;PK\x03\x04\x14\x00\t\x00\x08\x00;\xa7\xaa2\xac\xe5f\x14\xa9\x00&apos;</p>
 </blockquote>
 <p>The <code>PK\x03\x04</code> is the signature of a zip file. -&gt;<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/ZIP_(file_format)#Design">source</a></p>
-<p>Then we should save the output to a zip file and try unzip it.</p>
+<p>Then we should save the output to a zip file and try to unzip it.</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&apos;assets/20.zip&apos;</span>, <span class="hljs-string">&apos;wb&apos;</span>) <span class="hljs-keyword">as</span> f:</span><br><span class="line">    f.write(r.content)</span><br></pre></td></tr></table></figure>
 
 <p>There&apos;s a <code>readme.txt</code>. OK, we are in level 21 now.</p>
