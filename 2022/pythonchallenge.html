@@ -29,9 +29,9 @@
 <meta property="og:image" content="https://mocky-533.github.io/img/level6.png">
 <meta property="og:image" content="https://mocky-533.github.io/img/level9.png">
 <meta property="og:image" content="https://mocky-533.github.io/img/spiral.png">
-<meta property="og:image" content="https://mocky-533.github.io/img/ResponsHeaders.png">
+<meta property="og:image" content="https://mocky-533.github.io/img/ResponseHeaders.png">
 <meta property="article:published_time" content="2022-03-30T08:40:59.000Z">
-<meta property="article:modified_time" content="2022-04-20T14:32:54.429Z">
+<meta property="article:modified_time" content="2022-04-22T09:29:01.051Z">
 <meta property="article:author" content="Gerald">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
@@ -519,9 +519,9 @@
 </blockquote>
 <p>OK, We have it.</p>
 <h2><a href="#level-20" class="header-anchor">#</a><span id="level-20">Level 20</span></h2><p>Well, I have no idea what to do. Again, I learned something during searching online.</p>
-<img src="/img/ResponsHeaders.png" alt="response headers">
+<img src="/img/ResponseHeaders.png" alt="response headers">
 
-<p>The picture above is the response header of <code>unreal.jpg</code>. Now if we modify the <code>Range</code> value in the request header, we&apos;ll get access to files of other range.</p>
+<p>The picture above are the response headers of <code>unreal.jpg</code>. Now if we modify the <code>Range</code> value in the request headers, we&apos;ll get access to files of other range.</p>
 <p>It&apos;s clear that between 0 and 30202 bytes lies <code>unreal.jpg</code>. Let&apos;s go on to the next section. Set <code>Range</code> value to <code>bytes=30203-</code></p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> requests, base64</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">&apos;http://www.pythonchallenge.com/pc/hex/unreal.jpg&apos;</span></span><br><span class="line">cred = base64.b64encode(<span class="hljs-string">b&quot;butter:fly&quot;</span>)</span><br><span class="line">requests.auth.HTTPBasicAuth(<span class="hljs-string">&quot;butter&quot;</span>, <span class="hljs-string">&quot;fly&quot;</span>)</span><br><span class="line">headers = {<span class="hljs-string">&apos;Authorization&apos;</span>: <span class="hljs-string">f&quot;Basic <span class="hljs-subst">{cred.decode()}</span>&quot;</span>, <span class="hljs-string">&apos;Range&apos;</span>:<span class="hljs-string">&apos;bytes=30203-&apos;</span>}</span><br><span class="line"></span><br><span class="line">r = requests.get(url, headers=headers)</span><br><span class="line"><span class="hljs-built_in">print</span>(r.headers)</span><br><span class="line"><span class="hljs-built_in">print</span>(r.content.decode())</span><br></pre></td></tr></table></figure>
 
@@ -597,7 +597,9 @@
     
     
     <div class="columns is-mobile is-multiline article-nav">
-        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
+        <span class="column is-12-mobile is-half-desktop  article-nav-prev">
+            
+            <a href="/2022/pythonchallenge2">Python Challenge Notes (Part 2)</a>
             
         </span>
         <span class="column is-12-mobile is-half-desktop  article-nav-next">

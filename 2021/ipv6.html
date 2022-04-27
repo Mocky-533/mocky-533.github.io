@@ -18,15 +18,15 @@
 
 
 
-    <meta name="description" content="For some unknown reason, the ipv6 got offline once in a while. After rebooting, it turned just fine. I need ipv6 to do torrenting. So here comes the demand for a script for ipv6 availability checking.">
+    <meta name="description" content="For some unknown reasons, the ipv6 got offline once in a while. After rebooting, it turned just fine. I need ipv6 to do torrenting. So here comes the demand for a script to check my ipv6 availability.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ipv6 Availability Checking Script on Padavan">
 <meta property="og:url" content="https://mocky-533.github.io/2021/ipv6">
 <meta property="og:site_name" content="Gerald&#39;s Cabin">
-<meta property="og:description" content="For some unknown reason, the ipv6 got offline once in a while. After rebooting, it turned just fine. I need ipv6 to do torrenting. So here comes the demand for a script for ipv6 availability checking.">
+<meta property="og:description" content="For some unknown reasons, the ipv6 got offline once in a while. After rebooting, it turned just fine. I need ipv6 to do torrenting. So here comes the demand for a script to check my ipv6 availability.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-10-21T09:29:11.000Z">
-<meta property="article:modified_time" content="2022-04-20T08:56:10.433Z">
+<meta property="article:modified_time" content="2022-04-20T14:46:44.056Z">
 <meta property="article:author" content="Gerald">
 <meta property="article:tag" content="shell">
 <meta name="twitter:card" content="summary">
@@ -184,15 +184,15 @@
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <p>For some unknown reason, the ipv6 got offline once in a while. After rebooting, it turned just fine. I need ipv6 to do torrenting. So here comes the demand for a script for ipv6 availability checking.</p>
+        <p>For some unknown reasons, the ipv6 got offline once in a while. After rebooting, it turned just fine. I need ipv6 to do torrenting. So here comes the demand for a script to check my ipv6 availability.</p>
 <span id="more"></span>
 
 <figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">!/bin/sh</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">ipv6 check script, reboot <span class="hljs-keyword">if</span> fails</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">url=&lt;an ipv6-only site&gt;  || delete the <span class="hljs-string">&quot;#&quot;</span> to take effect or replace <span class="hljs-string">&apos;$url&apos;</span> with actual url down <span class="hljs-keyword">in</span> the corresponding <span class="hljs-built_in">command</span></span></span><br><span class="line">n=4</span><br><span class="line">timeout=1000</span><br><span class="line">logger -t &quot;[ipv6]&quot; &quot;check BEGIN&quot;</span><br><span class="line">ping -c $n -W $timeout $url</span><br><span class="line">if [ $? != 0 ];then</span><br><span class="line">    logger -t &quot;[ipv6]&quot; &quot;failed, try reboot&quot;</span><br><span class="line">    reboot</span><br><span class="line">else</span><br><span class="line">    logger -t &quot;[ipv6]&quot; &quot;working fine!&quot;</span><br><span class="line">fi</span><br><span class="line">exit 0</span><br></pre></td></tr></table></figure>
 
-<p>What it does is obvious. Noted that <code>logger -t</code> need two strings to display information in the log area. The script above displays informations as follows.</p>
+<p>What it does is obvious. Noted that <code>logger -t</code> needs two strings to display information in the log area. The script above displays informations as follows.</p>
 <figure class="highlight plaintext hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Oct 21 17:40:00 [ipv6]:  check BEGIN</span><br><span class="line">Oct 21 17:40:03 [ipv6]:  working fine</span><br></pre></td></tr></table></figure>
 
-<p>However, the log area could be filled with these two information, which is not ideal. <code>logger -t</code> sentence could be deleted after testing.<br>&#x5B9E;&#x9645;&#x4F7F;&#x7528;&#x4E2D;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;log&#x680F;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x88AB;&#x4EE5;&#x4E0A;&#x4E24;&#x6761;&#x5360;&#x6EE1;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x6D4B;&#x8BD5;&#x5B9E;&#x9645;&#x81EA;&#x52A8;&#x8FD0;&#x884C;&#x6B63;&#x5E38;&#x540E;&#x5C06;log&#x680F;&#x8F93;&#x51FA;&#x5220;&#x9664;&#x3002;</p>
+<p>However, the log area could be filled with these two information, which is not ideal. <code>logger -t</code> sentence could be deleted after testing.</p>
 <h2><a href="#settings" class="header-anchor">#</a><span id="settings">Settings</span></h2><ol>
 <li><p>Check <code>Advaced settings</code>-<code>System settings</code>-<code>Services</code>-<code>Enable SSH</code>. SSH might not work properly on windows due to some reason about porting. Open the corresponding ports on windows should be the solution here.</p>
  <figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh admin@192.168.123.1</span><br></pre></td></tr></table></figure>
@@ -203,7 +203,7 @@
 </li>
 <li><p>The script is not written into the ROM if you did not run the mtd_storage script, because of some settings of Padavan firmware.<br> run <code>/sbin/mtd_storage.sh save</code> to save the modification.</p>
 </li>
-<li><p>Run script ragularly.<br> <code>system settings</code>-<code>Services</code>-<code>cron</code><br> input <code>*/10 * * * * /etc/storage/ipv6_check.sh</code> in the Cron tab. Run the script every 10 minutes.</p>
+<li><p>Run script ragularly.<br> <code>system settings</code>-<code>Services</code>-<code>cron</code><br> Input <code>*/10 * * * * /etc/storage/ipv6_check.sh</code> in the Cron tab to run the script every 10 minutes.</p>
 </li>
 </ol>
 
