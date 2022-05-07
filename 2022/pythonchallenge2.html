@@ -29,8 +29,9 @@
 <meta property="og:image" content="https://mocky-533.github.io/img/greypixel.png">
 <meta property="og:image" content="https://mocky-533.github.io/img/upper_right.png">
 <meta property="og:image" content="https://mocky-533.github.io/img/lower_left.png">
+<meta property="og:image" content="https://mocky-533.github.io/img/level27.png">
 <meta property="article:published_time" content="2022-04-21T05:30:15.000Z">
-<meta property="article:modified_time" content="2022-05-02T15:53:48.631Z">
+<meta property="article:modified_time" content="2022-05-07T15:21:22.452Z">
 <meta property="article:author" content="Gerald">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
@@ -203,13 +204,13 @@
     <td><a href="#level-24">Level 24</a></td>
     <td><a href="#level-25">Level 25</a></td>
 </tr>
-<!-- <tr>
+<tr>
     <td><a href="#level-26">Level 26</a></td>
     <td><a href="#level-27">Level 27</a></td>
     <td><a href="#level-28">Level 28</a></td>
-    <td><a href="#level-29">Level 29</a></td>
-    <td><a href="#level-30">Level 30</a></td>
-</tr> -->
+    <!-- <td><a href="#level-29">Level 29</a></td> -->
+    <!-- <td><a href="#level-30">Level 30</a></td> -->
+</tr>
 </table>
 
 <h2><a href="#level-21" class="header-anchor">#</a><span id="level-21">Level 21</span></h2><blockquote>
@@ -363,6 +364,82 @@
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image</span><br><span class="line"></span><br><span class="line">j = <span class="hljs-number">0</span></span><br><span class="line">img = Image.new(<span class="hljs-string">&apos;RGB&apos;</span>, (<span class="hljs-number">300</span>, <span class="hljs-number">300</span>), <span class="hljs-number">0</span>)</span><br><span class="line">waves = [wave.<span class="hljs-built_in">open</span>(<span class="hljs-string">f&quot;assets/25/lake<span class="hljs-subst">{i}</span>.wav&quot;</span>, <span class="hljs-string">&apos;rb&apos;</span>) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">26</span>)]</span><br><span class="line"><span class="hljs-keyword">for</span> audio <span class="hljs-keyword">in</span> waves:</span><br><span class="line">    tmp = Image.frombytes(<span class="hljs-string">&quot;RGB&quot;</span>, (<span class="hljs-number">60</span>, <span class="hljs-number">60</span>), <span class="hljs-built_in">bytes</span>(audio.readframes(<span class="hljs-number">10800</span>)))</span><br><span class="line">    img.paste(tmp, [j%<span class="hljs-number">5</span>*<span class="hljs-number">60</span>, j//<span class="hljs-number">5</span>*<span class="hljs-number">60</span>])</span><br><span class="line">    j += <span class="hljs-number">1</span></span><br><span class="line">img.show()</span><br></pre></td></tr></table></figure>
 
 <p>And the answer is in the output.</p>
+<h2><a href="#level-26" class="header-anchor">#</a><span id="level-26">Level 26</span></h2><p>Be a man - Apologize!</p>
+<p>In the source code: you&apos;ve got his email.</p>
+<p>Email. The only email ever was in <a href="/2022/pythonchallenge#level-19">level 19</a>. So we are supposed to write a email rather than modifying the request headers then. However, maybe the site has lost some functions over the years. The email I wrote never got a reply. When searching for informations, I found that a reply WAS supposed to appear, inside which a md5 thumbprint was offered to help dealing with the <code>mybroken.zip</code> in <a href="#level-24">level 24</a>.</p>
+<blockquote>
+<p>Never mind that.<br>Have you found my broken zip?<br>md5: bbb8b499a0eef99b52c7f13f4e78c24b<br>Can you believe what one mistake can lead to?</p>
+</blockquote>
+<p>It&apos;s clear that we should do some modification to <code>mybroken.zip</code> to get the same md5 thumbprint.</p>
+<p>As a matter of fact, if you extract files from <code>mybroken.zip</code> using 7-zip, the <code>mybroken.gif</code> inside is completely visiable, in spite of a CRC failed problem. It&apos;s &quot;Speed&quot;. I don&apos;t know about the details of how 7-zip managed to do this. But according to other solutions, only half of the image could be seen.</p>
+<p>It says &quot;one mistake&quot;. Only one byte of data is incorrect, then. Simply modify every byte of data and check the md5 thumbprint would do the trick.</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line">standard = <span class="hljs-string">&quot;bbb8b499a0eef99b52c7f13f4e78c24b&quot;</span></span><br><span class="line"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;assets/maze/mybroken.zip&quot;</span>, <span class="hljs-string">&quot;rb&quot;</span>) <span class="hljs-keyword">as</span> f:</span><br><span class="line">    original = f.read()</span><br><span class="line">flag = <span class="hljs-number">0</span></span><br><span class="line"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(original)):</span><br><span class="line">    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">256</span>):</span><br><span class="line">        data = original[:i] + <span class="hljs-built_in">bytes</span>([j]) + original[i+<span class="hljs-number">1</span>:]</span><br><span class="line">        <span class="hljs-keyword">if</span> hashlib.md5(data).hexdigest() == standard:</span><br><span class="line">            flag = <span class="hljs-number">1</span></span><br><span class="line">            <span class="hljs-keyword">break</span></span><br><span class="line">    <span class="hljs-keyword">if</span> flag:</span><br><span class="line">        <span class="hljs-keyword">break</span></span><br><span class="line"><span class="hljs-built_in">print</span>(flag)</span><br><span class="line"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;assets/maze/new.zip&quot;</span>, <span class="hljs-string">&apos;wb&apos;</span>) <span class="hljs-keyword">as</span> new_file:</span><br><span class="line">    new_file.write(data)</span><br></pre></td></tr></table></figure>
+
+<p>Now the new zip file has no CRC problem. Conbined with &quot;I&apos;m missing the boat&quot;, the answer should be <code>speedboat</code>.</p>
+<h2><a href="#level-27" class="header-anchor">#</a><span id="level-27">Level 27</span></h2><p>Between the tables.</p>
+<p>The picture lead to a page which requires a new set of username and password. Inside the source code:</p>
+<blockquote>
+<p>did you say gif?<br>oh, and this is NOT a repeat of 14</p>
+</blockquote>
+<p>The url of the picture is <code>zigzag.jpg</code>. Change it to <code>zigzag.gif</code>, and we get a greyscale image.</p>
+<p>Gee, I haven&apos;t work out a problem totally on my own since level 23. It&apos;s getting harder and harder for me to get the hints. Well, no surprises for this level.</p>
+<p>Most of the gif files are in &quot;P&quot; mode. It&apos;s a good way to save space. A color palette is required so as to display a &quot;P&quot; mode image. The value stored in each pixels are a pointer to a color in the palette. Here the key to solve to problem is the color palette.</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image</span><br><span class="line"></span><br><span class="line">img = Image.<span class="hljs-built_in">open</span>(<span class="hljs-string">&apos;assets/zigzag.gif&apos;</span>)</span><br><span class="line">palette = img.getpalette()</span><br><span class="line"><span class="hljs-built_in">print</span>(palette)</span><br></pre></td></tr></table></figure>
+
+<p>The arrangement of values in this palette is regular. Every consective three values are the same. What we need is only one of three same values.</p>
+<p>Next thing to do is translate the pixel value to its color using palette.</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image</span><br><span class="line"></span><br><span class="line">img = Image.<span class="hljs-built_in">open</span>(<span class="hljs-string">&apos;assets/zigzag.gif&apos;</span>)</span><br><span class="line">palette = img.getpalette()[::<span class="hljs-number">3</span>]</span><br><span class="line">trans = <span class="hljs-built_in">bytes</span>.maketrans(<span class="hljs-built_in">bytes</span>([i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">256</span>)]), <span class="hljs-built_in">bytes</span>(palette))</span><br><span class="line">img_b = img.tobytes()</span><br><span class="line"><span class="hljs-built_in">print</span>(<span class="hljs-string">f&apos;img_b  first 20: <span class="hljs-subst">{img_b[:<span class="hljs-number">20</span>].<span class="hljs-built_in">hex</span>()}</span>&apos;</span>)</span><br><span class="line"><span class="hljs-built_in">print</span>(<span class="hljs-string">f&apos;img_b  last 20: <span class="hljs-subst">{img_b[-<span class="hljs-number">20</span>:].<span class="hljs-built_in">hex</span>()}</span>&apos;</span>)</span><br><span class="line">result = <span class="hljs-built_in">bytes</span>.translate(img_b, trans)</span><br><span class="line"><span class="hljs-built_in">print</span>(<span class="hljs-string">f&apos;result first 20: <span class="hljs-subst">{result[:<span class="hljs-number">20</span>].<span class="hljs-built_in">hex</span>()}</span>&apos;</span>)</span><br><span class="line"><span class="hljs-built_in">print</span>(<span class="hljs-string">f&apos;result last 20: <span class="hljs-subst">{result[-<span class="hljs-number">20</span>:].<span class="hljs-built_in">hex</span>()}</span>&apos;</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>img_b  first 20: d7d0cb0cfe3c8b4842bd7fb0ad46aacf27207e8e<br>img_b  last 20: 7a5f0d5b95e3b20e6a0388bf05d439b8174efa64<br>result first 20: d0cb0cfe3c8b4842bd7fb0ad46aacf27207e8ea4<br>result last 20: 5f0d5b95e3b20e6a0388bf05d439b8174efa645d</p>
+</blockquote>
+<p>Seems that the first 20 bytes of variable <code>result</code> and variable <code>img_b</code> are identical, except for the first byte of <code>img_b</code> and last byte of <code>relsult</code>. Are they the same all the way?</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(img_b) == <span class="hljs-built_in">len</span>(result))</span><br><span class="line"><span class="hljs-built_in">print</span>(img_b[<span class="hljs-number">1</span>:] == result[:-<span class="hljs-number">1</span>])</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>True<br>False</p>
+</blockquote>
+<p>Turns out that these two variables are identical in lenth. The content we are looking at, on the other hand, are different.</p>
+<p>Now let&apos;s compare the contents.</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">raw, img_b = raw[<span class="hljs-number">1</span>:], img_b[:-<span class="hljs-number">1</span>]</span><br><span class="line">diff_raw = []</span><br><span class="line">diff_b = []</span><br><span class="line"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(raw)):</span><br><span class="line">    <span class="hljs-keyword">if</span> raw[i] != img_b[i]:</span><br><span class="line">        diff_raw.append(raw[i])</span><br><span class="line">        diff_b.append(img_b[i])</span><br><span class="line"><span class="hljs-built_in">print</span>(<span class="hljs-built_in">bytes</span>(diff_raw)[:<span class="hljs-number">20</span>])</span><br><span class="line"><span class="hljs-built_in">print</span>(<span class="hljs-built_in">bytes</span>(diff_b)[:<span class="hljs-number">20</span>])</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>b&apos;BZh91AY&amp;SY\xe0\xaaYF\x00\x17\x9a\x11\x80@&apos;<br>b&apos;\x99\xbdQ\x82\xf2\x89S\x04\x15E\x047 \x04\x95\xe4N\x9b\xd5\xa8&apos;</p>
+</blockquote>
+<p>The first one is a bzip compressed file obviously. The other one, no clue.</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">clue1, clue2 = <span class="hljs-built_in">bytes</span>(diff_raw), <span class="hljs-built_in">bytes</span>(diff_b)</span><br><span class="line">clue1 = bz2.BZ2Decompressor().decompress(clue1)</span><br><span class="line"><span class="hljs-built_in">print</span>(clue1)</span><br></pre></td></tr></table></figure>
+
+<p>It&apos;s a bunch of information, one is a url, others are just words. Use <code>set</code> class to remove redundant words.</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">l1 = clue1.decode().split(<span class="hljs-string">&apos; &apos;</span>)</span><br><span class="line"><span class="hljs-built_in">print</span>(<span class="hljs-built_in">set</span>(l1))</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>{&apos;else&apos;, &apos;is&apos;, &apos;raise&apos;, &apos;pass&apos;, &apos;assert&apos;, &apos;while&apos;, &quot;while&apos;&quot;, &apos;yield&apos;, &apos;in&apos;, &apos;lambda&apos;, &apos;for&apos;, &apos;return&apos;, &apos;or&apos;, &apos;../ring/bell.html&apos;, &apos;exec&apos;, &apos;def&apos;, &apos;if&apos;, &apos;break&apos;, &apos;continue&apos;, &apos;not&apos;, &apos;and&apos;, &apos;import&apos;, &quot;b&apos;../ring/bell.html&quot;, &apos;switch&apos;, &apos;class&apos;, &apos;except&apos;, &apos;global&apos;, &apos;del&apos;, &apos;repeat&apos;, &apos;from&apos;, &apos;elif&apos;, &apos;try&apos;, &apos;print&apos;, &apos;finally&apos;}</p>
+</blockquote>
+<p><code>../ring/bell/html</code> is the exact url that main picture of this level pointing at. That way, the username and password should be in the set as well. Question is, which ones?</p>
+<p>If we take down the position of these differences, and make a image and change theses positions, we&apos;ll get a picture as follows.</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(raw)):</span><br><span class="line">    <span class="hljs-keyword">if</span> raw[i] != img_b[i]:</span><br><span class="line">        diff_raw.append(raw[i])</span><br><span class="line">        diff_b.append(img_b[i])</span><br><span class="line">        pos.append(i)</span><br><span class="line">newimg = Image.new(<span class="hljs-string">&quot;1&quot;</span>, img.size, <span class="hljs-number">1</span>)</span><br><span class="line"><span class="hljs-keyword">for</span> v <span class="hljs-keyword">in</span> pos:</span><br><span class="line">    newimg.putpixel((v%width, v//width), <span class="hljs-number">0</span>)</span><br><span class="line">newimg.show()</span><br></pre></td></tr></table></figure>
+
+<img src="/img/level27.png" alt="level 27">
+
+<p>Now what&apos;s left to do is just filter python keywords outta that set earlier.</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">clue1, clue2 = <span class="hljs-built_in">bytes</span>(diff_raw), <span class="hljs-built_in">bytes</span>(diff_b)</span><br><span class="line">clue1 = bz2.BZ2Decompressor().decompress(clue1)</span><br><span class="line">words = <span class="hljs-built_in">set</span>(clue1.decode().split(<span class="hljs-string">&apos; &apos;</span>))</span><br><span class="line"><span class="hljs-keyword">for</span> ele <span class="hljs-keyword">in</span> words:</span><br><span class="line">    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> keyword.iskeyword(ele):</span><br><span class="line">        <span class="hljs-built_in">print</span>(ele)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>repeat<br>exec<br>../ring/bell.html<br>switch<br>print</p>
+</blockquote>
+<p>Apparently, this level is a little out of date. Some keywords being removed in python3 could be a reason. There should be only two words left alongside a url. So, which words are not keywords in both python2 and python3? It&apos;s simple now.</p>
+<p>Useful link: <a target="_blank" rel="noopener" href="https://github.com/python/cpython/blob/2.7/Lib/keyword.py">keywords in python2</a></p>
+<h2><a href="#level-28" class="header-anchor">#</a><span id="level-28">Level 28</span></h2><p>Ring-Ring-Ring, say it out loud.</p>
+<p>Sounds like grin or green? First try <code>grin.html</code>.</p>
+<blockquote>
+<p>you are not happy - you are feeling sick.</p>
+</blockquote>
+<p>OK, then it has to be <code>green.html</code>.</p>
+<blockquote>
+<p>Yes, Green!</p>
+</blockquote>
+<p>What, nothing?</p>
+<p>If you take a deeper look at the main picture <code>bell.png</code>, there&apos;re some &quot;bands&quot; in the picture. Maybe it has something to do with the G value.</p>
 
     
     </div>
