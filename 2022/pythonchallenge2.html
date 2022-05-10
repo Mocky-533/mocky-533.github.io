@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://mocky-533.github.io/img/lower_left.png">
 <meta property="og:image" content="https://mocky-533.github.io/img/level27.png">
 <meta property="article:published_time" content="2022-04-21T05:30:15.000Z">
-<meta property="article:modified_time" content="2022-05-07T15:21:22.452Z">
+<meta property="article:modified_time" content="2022-05-09T02:24:48.126Z">
 <meta property="article:author" content="Gerald">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
@@ -208,8 +208,12 @@
     <td><a href="#level-26">Level 26</a></td>
     <td><a href="#level-27">Level 27</a></td>
     <td><a href="#level-28">Level 28</a></td>
-    <!-- <td><a href="#level-29">Level 29</a></td> -->
-    <!-- <td><a href="#level-30">Level 30</a></td> -->
+    <td><a href="#level-29">Level 29</a></td>
+    <td><a href="#level-30">Level 30</a></td>
+</tr>
+<tr>
+    <td><a href="#level-31">Level 31</a></td>
+    <!-- <td><a href="#level-32">Level 32</a></td> -->
 </tr>
 </table>
 
@@ -273,7 +277,7 @@
 <p>Well, not exactly. With zooming in several times, a grey (or &quot;not that black&quot;) pixel around the center of the image can be noticed.</p>
 <img src="/img/greypixel.png" alt="grey pixel">
 
-<p>And the image is actually a gif file with multipule frames, unlike <code>mozart.gif</code> from <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/return/mozart.html">level 16</a>, which, on the contrary, contains only 1 frame.</p>
+<p>And the image is actually a gif file with multiple frames, unlike <code>mozart.gif</code> from <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/return/mozart.html">level 16</a>, which, on the contrary, contains only 1 frame.</p>
 <p>First we need to know the modes of the frames.</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image, ImageSequence</span><br><span class="line"></span><br><span class="line">pic = Image.<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;assets/white.gif&quot;</span>)</span><br><span class="line">frames = ImageSequence.Iterator(pic)</span><br><span class="line"><span class="hljs-keyword">for</span> frame <span class="hljs-keyword">in</span> frames:</span><br><span class="line">    <span class="hljs-built_in">print</span>(frame.mode)</span><br></pre></td></tr></table></figure>
 
@@ -406,7 +410,7 @@
 <blockquote>
 <p>b&apos;BZh91AY&amp;SY\xe0\xaaYF\x00\x17\x9a\x11\x80@&apos;<br>b&apos;\x99\xbdQ\x82\xf2\x89S\x04\x15E\x047 \x04\x95\xe4N\x9b\xd5\xa8&apos;</p>
 </blockquote>
-<p>The first one is a bzip compressed file obviously. The other one, no clue.</p>
+<p>The first one is a bzip compressed content obviously. The other one, no clue.</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">clue1, clue2 = <span class="hljs-built_in">bytes</span>(diff_raw), <span class="hljs-built_in">bytes</span>(diff_b)</span><br><span class="line">clue1 = bz2.BZ2Decompressor().decompress(clue1)</span><br><span class="line"><span class="hljs-built_in">print</span>(clue1)</span><br></pre></td></tr></table></figure>
 
 <p>It&apos;s a bunch of information, one is a url, others are just words. Use <code>set</code> class to remove redundant words.</p>
@@ -415,7 +419,7 @@
 <blockquote>
 <p>{&apos;else&apos;, &apos;is&apos;, &apos;raise&apos;, &apos;pass&apos;, &apos;assert&apos;, &apos;while&apos;, &quot;while&apos;&quot;, &apos;yield&apos;, &apos;in&apos;, &apos;lambda&apos;, &apos;for&apos;, &apos;return&apos;, &apos;or&apos;, &apos;../ring/bell.html&apos;, &apos;exec&apos;, &apos;def&apos;, &apos;if&apos;, &apos;break&apos;, &apos;continue&apos;, &apos;not&apos;, &apos;and&apos;, &apos;import&apos;, &quot;b&apos;../ring/bell.html&quot;, &apos;switch&apos;, &apos;class&apos;, &apos;except&apos;, &apos;global&apos;, &apos;del&apos;, &apos;repeat&apos;, &apos;from&apos;, &apos;elif&apos;, &apos;try&apos;, &apos;print&apos;, &apos;finally&apos;}</p>
 </blockquote>
-<p><code>../ring/bell/html</code> is the exact url that main picture of this level pointing at. That way, the username and password should be in the set as well. Question is, which ones?</p>
+<p><code>../ring/bell.html</code> is the exact url that main picture of this level pointing at. That way, the username and password should be in the set as well. Question is, which ones?</p>
 <p>If we take down the position of these differences, and make a image and change theses positions, we&apos;ll get a picture as follows.</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(raw)):</span><br><span class="line">    <span class="hljs-keyword">if</span> raw[i] != img_b[i]:</span><br><span class="line">        diff_raw.append(raw[i])</span><br><span class="line">        diff_b.append(img_b[i])</span><br><span class="line">        pos.append(i)</span><br><span class="line">newimg = Image.new(<span class="hljs-string">&quot;1&quot;</span>, img.size, <span class="hljs-number">1</span>)</span><br><span class="line"><span class="hljs-keyword">for</span> v <span class="hljs-keyword">in</span> pos:</span><br><span class="line">    newimg.putpixel((v%width, v//width), <span class="hljs-number">0</span>)</span><br><span class="line">newimg.show()</span><br></pre></td></tr></table></figure>
 
@@ -440,6 +444,93 @@
 </blockquote>
 <p>What, nothing?</p>
 <p>If you take a deeper look at the main picture <code>bell.png</code>, there&apos;re some &quot;bands&quot; in the picture. Maybe it has something to do with the G value.</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> cv2</span><br><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"></span><br><span class="line">img = cv2.imread(<span class="hljs-string">&quot;assets/bell.png&quot;</span>)</span><br><span class="line">height, width, _ = img.shape</span><br><span class="line">b, g, r = cv2.split(img)</span><br><span class="line">g1 = np.reshape(g, (<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>))[<span class="hljs-number">0</span>]</span><br><span class="line">np.set_printoptions(threshold=np.inf)</span><br><span class="line"><span class="hljs-built_in">print</span>(g1)</span><br></pre></td></tr></table></figure>
+
+<p>Variable <code>g1</code> stores 307200 values. And if you take a deep look at it, the differences of most consective two values are 42/-42.</p>
+<p>Do the subtraction, filter out the values 42/-42.</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> cv2</span><br><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"></span><br><span class="line">img = cv2.imread(<span class="hljs-string">&quot;assets/bell.png&quot;</span>)</span><br><span class="line">height, width, _ = img.shape</span><br><span class="line">b, g, r = cv2.split(img)</span><br><span class="line">g1 = np.reshape(g, (<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>))[<span class="hljs-number">0</span>].astype(np.int8)</span><br><span class="line">g2= g1[<span class="hljs-number">0</span>::<span class="hljs-number">2</span>] - g1[<span class="hljs-number">1</span>::<span class="hljs-number">2</span>]</span><br><span class="line">l = []</span><br><span class="line"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> g2:</span><br><span class="line">    <span class="hljs-keyword">if</span> i != <span class="hljs-number">42</span> <span class="hljs-keyword">and</span> i != -<span class="hljs-number">42</span>:</span><br><span class="line">        l.append(i)</span><br><span class="line"><span class="hljs-built_in">print</span>(l)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>[119, -104, -111, 100, 117, 110, -110, 105, 116, -40, 41, -46, -115, 112, -108, 105, 116, 40, 41, 91, 48, -93, 32, -63]</p>
+</blockquote>
+<p>Does it remind you of something like ascii code? Well, it does for me.</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;&quot;</span>.join(<span class="hljs-built_in">chr</span>(<span class="hljs-built_in">abs</span>(j)) <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> l))</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>whodunnit().split()[0] ?</p>
+</blockquote>
+<p>Whodun-WHAT? First I thought it&apos;s referring to the site. In <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/about.php">About Page of python challenge</a> I found the site was written by Nadav Samet. Not correct.</p>
+<p>I was so so close to solving the problem totally on my own, except for a final kick. It is referring to the creator of Python!!</p>
+<h2><a href="#level-29" class="header-anchor">#</a><span id="level-29">Level 29</span></h2><p>An interesting level. Nothing useful in both web page and source code.</p>
+<p>Well, if there&apos;re no line numbers.</p>
+<p>I use dev tools to view the source code mostly. There&apos;s nothing interesting in the source code that way.</p>
+<p>However, I&apos;ve come to loving using <code>requests</code> module to view the source code recently. That&apos;s where &quot;magic&quot; happens. lol</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">&quot;http://www.pythonchallenge.com/pc/ring/guido.html&quot;</span></span><br><span class="line">r = requests.get(url, auth=(<span class="hljs-string">&quot;repeat&quot;</span>, <span class="hljs-string">&quot;switch&quot;</span>))</span><br><span class="line"><span class="hljs-built_in">print</span>(r.text)</span><br></pre></td></tr></table></figure>
+
+<p>There&apos;re some blank lines in the end. You can&apos;t tell any differences between these lines when they are displayed in a terminal, though.</p>
+<p>Press <kbd>ctrl</kbd>+<kbd>u</kbd> in <code>guido.html</code>. For other web broswers, the shortcut could be different. In microsoft edge dev, we enter a page <code>view-source:http://www.pythonchallenge.com/pc/ring/guido.html</code>. The source code are displayed much distinct.</p>
+<p>Select all, you&apos;ll see the length of these blank lines are different. Yeah, we got the key!</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">&quot;http://www.pythonchallenge.com/pc/ring/guido.html&quot;</span></span><br><span class="line">r = requests.get(url, auth=(<span class="hljs-string">&quot;repeat&quot;</span>, <span class="hljs-string">&quot;switch&quot;</span>))</span><br><span class="line">msg = [<span class="hljs-built_in">len</span>(i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> r.text.split(<span class="hljs-string">&quot;\n&quot;</span>)[<span class="hljs-number">12</span>:]]</span><br><span class="line"><span class="hljs-built_in">print</span>(msg)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>[66, 90, 104, 57, 49, 65, 89, 38, 83, 89, 217, 194, 112, 24, 0, 0, 4, 157, 128, 96, 128, 0, 0, 128, 32, 46, 47, 156, 32, 32, 0, 49, 76, 152, 153, 6, 70, 17, 50, 104, 100, 6, 106, 85, 100, 185, 158, 198, 24, 197, 146, 82, 72, 229, 90, 34, 1, 186, 167, 128, 127, 139, 185, 34, 156, 40, 72, 108, 225, 56, 12, 0, 0]</p>
+</blockquote>
+<p>Ascii code?</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msg = [<span class="hljs-built_in">chr</span>(<span class="hljs-built_in">len</span>(i)) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> r.text.split(<span class="hljs-string">&quot;\n&quot;</span>)[<span class="hljs-number">12</span>:]]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>[&apos;B&apos;, &apos;Z&apos;, &apos;h&apos;, &apos;9&apos;, &apos;1&apos;, &apos;A&apos;, &apos;Y&apos;, &apos;&amp;&apos;, &apos;S&apos;, &apos;Y&apos;, &apos;&#xD9;&apos;, &apos;&#xC2;&apos;, &apos;p&apos;, &apos;\x18&apos;, &apos;\x00&apos;, &apos;\x00&apos;, &apos;\x04&apos;, &apos;\x9d&apos;, &apos;\x80&apos;, &apos;`&apos;, &apos;\x80&apos;, &apos;\x00&apos;, &apos;\x00&apos;, &apos;\x80&apos;, &apos; &apos;, &apos;.&apos;, &apos;/&apos;, &apos;\x9c&apos;, &apos; &apos;, &apos; &apos;, &apos;\x00&apos;, &apos;1&apos;, &apos;L&apos;, &apos;\x98&apos;, &apos;\x99&apos;, &apos;\x06&apos;, &apos;F&apos;, &apos;\x11&apos;, &apos;2&apos;, &apos;h&apos;, &apos;d&apos;, &apos;\x06&apos;, &apos;j&apos;, &apos;U&apos;, &apos;d&apos;, &apos;&#xB9;&apos;, &apos;\x9e&apos;, &apos;&#xC6;&apos;, &apos;\x18&apos;, &apos;&#xC5;&apos;, &apos;\x92&apos;, &apos;R&apos;, &apos;H&apos;, &apos;&#xE5;&apos;, &apos;Z&apos;, &apos;&quot;&apos;, &apos;\x01&apos;, &apos;&#xBA;&apos;, &apos;&#xA7;&apos;, &apos;\x80&apos;, &apos;\x7f&apos;, &apos;\x8b&apos;, &apos;&#xB9;&apos;, &apos;&quot;&apos;, &apos;\x9c&apos;, &apos;(&apos;, &apos;H&apos;, &apos;l&apos;, &apos;&#xE1;&apos;, &apos;8&apos;, &apos;\x0c&apos;, &apos;\x00&apos;, &apos;\x00&apos;]</p>
+</blockquote>
+<p>It&apos;s pretty clear now. Bzip compressed content.</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> requests, bz2</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">&quot;http://www.pythonchallenge.com/pc/ring/guido.html&quot;</span></span><br><span class="line">r = requests.get(url, auth=(<span class="hljs-string">&quot;repeat&quot;</span>, <span class="hljs-string">&quot;switch&quot;</span>))</span><br><span class="line">msg = [<span class="hljs-built_in">len</span>(i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> r.text.split(<span class="hljs-string">&quot;\n&quot;</span>)[<span class="hljs-number">12</span>:]]</span><br><span class="line"><span class="hljs-built_in">print</span>(bz2.decompress(<span class="hljs-built_in">bytes</span>(msg)))</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>b&quot;Isn&apos;t it clear? I am yankeedoodle!&quot;</p>
+</blockquote>
+<p>Well, I was lucky this time. Didn&apos;t run into much trouble.</p>
+<h2><a href="#level-30" class="header-anchor">#</a><span id="level-30">Level 30</span></h2><p>Source code has made it clear that we should look at <code>yankeedoodle.csv</code>.</p>
+<p>In it are some &quot;random&quot; values between 1 and 0, on first glimpse.</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np</span><br><span class="line"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;assets/yankeedoodle.csv&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>) <span class="hljs-keyword">as</span> f:</span><br><span class="line">    data = [<span class="hljs-built_in">float</span>(x.strip()) <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> f.read().split(<span class="hljs-string">&quot;,&quot;</span>)]</span><br><span class="line">content = np.array([data])</span><br><span class="line">n = <span class="hljs-built_in">len</span>(img[<span class="hljs-number">0</span>])</span><br><span class="line"><span class="hljs-built_in">print</span>(n)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>7367</p>
+</blockquote>
+<p>What if we regard these values as a picture? First we need to find the factors of 7367</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> math</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">resolve</span>(<span class="hljs-params">n</span>):</span></span><br><span class="line">    factors = []</span><br><span class="line">    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>, <span class="hljs-built_in">int</span>(math.sqrt(n))):</span><br><span class="line">        <span class="hljs-keyword">if</span> n % i == <span class="hljs-number">0</span>:</span><br><span class="line">            factors.append([i, <span class="hljs-built_in">int</span>(n/i)])</span><br><span class="line">    <span class="hljs-keyword">return</span> factors</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">print</span>(resolve(n))</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>[[53, 139]]</p>
+</blockquote>
+<p>There&apos;s only one possibility then. The image has to be 53px*139px.</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> cv2</span><br><span class="line">height, width = resolve(n)[<span class="hljs-number">0</span>]</span><br><span class="line">content.resize((height, width))</span><br><span class="line">cv2.imshow(<span class="hljs-string">&quot;img&quot;</span>, content)</span><br><span class="line">cv2.waitKey()</span><br></pre></td></tr></table></figure>
+
+<p>The output is a total mess. Switch the value of height and width.</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">img.resize((width, height))</span><br></pre></td></tr></table></figure>
+
+<p>This time the output reads <code>n=str(x[i])[5]+str(x[i+1])[5]+str(x[i+2])[6]</code>. We are supposed to transform the float numbers into some string, if I&apos;m right.</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;assets/yankeedoodle.csv&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>) <span class="hljs-keyword">as</span> f:</span><br><span class="line">    data = [x.strip() <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> f.read().split(<span class="hljs-string">&quot;,&quot;</span>)]</span><br><span class="line">content = np.array([data])</span><br><span class="line">n = <span class="hljs-built_in">len</span>(content[<span class="hljs-number">0</span>])</span><br><span class="line">info = []</span><br><span class="line"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, n-<span class="hljs-number">2</span>, <span class="hljs-number">3</span>):</span><br><span class="line">    n = <span class="hljs-built_in">str</span>(content[<span class="hljs-number">0</span>][i])[<span class="hljs-number">5</span>] + <span class="hljs-built_in">str</span>(content[<span class="hljs-number">0</span>][i+<span class="hljs-number">1</span>])[<span class="hljs-number">5</span>] + <span class="hljs-built_in">str</span>(content[<span class="hljs-number">0</span>][i+<span class="hljs-number">2</span>])[<span class="hljs-number">6</span>]</span><br><span class="line">    info.append(n)</span><br><span class="line"><span class="hljs-built_in">print</span>(info)</span><br></pre></td></tr></table></figure>
+
+<p>The output is a bunch of numbers. Again, ascii code.</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">info = []</span><br><span class="line"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, n-<span class="hljs-number">2</span>, <span class="hljs-number">3</span>):</span><br><span class="line">    n = <span class="hljs-built_in">chr</span>(<span class="hljs-built_in">int</span>(<span class="hljs-built_in">str</span>(content[<span class="hljs-number">0</span>][i])[<span class="hljs-number">5</span>] + <span class="hljs-built_in">str</span>(content[<span class="hljs-number">0</span>][i+<span class="hljs-number">1</span>])[<span class="hljs-number">5</span>] + <span class="hljs-built_in">str</span>(content[<span class="hljs-number">0</span>][i+<span class="hljs-number">2</span>])[<span class="hljs-number">6</span>]))</span><br><span class="line">    info.append(n)</span><br><span class="line"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;&quot;</span>.join(info))</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>So, you found the hidden message.<br>There is lots of room here for a long message, but we only need very little space to say &quot;look at grandpa&quot;, so the rest is just garbage.<br>(some unintelligible code)</p>
+</blockquote>
+<p>Grandpa it is.</p>
+<h2><a href="#level-31" class="header-anchor">#</a><span id="level-31">Level 31</span></h2><p>Where am I?</p>
+<p>Main picture <code>grandpa.jpg</code> leads to another page, possibly for the next level. It requires another set of username and password to authenticate. The comment in the source code says</p>
+<blockquote>
+<p>short break, this ***REALLY*** has nothing to do with Python</p>
+</blockquote>
+<p>OK, if you say so. Google the image. It&apos;s Ko Samui (or Koh Samui), the second largest island in Thailand.</p>
+<p>ko/samui, koh/samui, kosamui/thailand, kohsamui/thailand. Damn, finally, after four trials.</p>
+<p>The new page reads &quot;That was too easy. You are still on 31...&quot;</p>
+<p>OK, this page seems to be the real level 31.</p>
+<blockquote>
+<p>Page title: UFOs?</p>
+</blockquote>
+<p>The image name is interesting, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Mandelbrot_set">&quot;mandelbrot&quot;</a>.</p>
+<p>I need a while...</p>
 
     
     </div>
