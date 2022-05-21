@@ -30,8 +30,9 @@
 <meta property="og:image" content="https://mocky-533.github.io/img/upper_right.png">
 <meta property="og:image" content="https://mocky-533.github.io/img/lower_left.png">
 <meta property="og:image" content="https://mocky-533.github.io/img/level27.png">
+<meta property="og:image" content="https://mocky-533.github.io/img/up.png">
 <meta property="article:published_time" content="2022-04-21T05:30:15.000Z">
-<meta property="article:modified_time" content="2022-05-09T02:24:48.126Z">
+<meta property="article:modified_time" content="2022-05-21T04:10:23.807Z">
 <meta property="article:author" content="Gerald">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
@@ -213,7 +214,8 @@
 </tr>
 <tr>
     <td><a href="#level-31">Level 31</a></td>
-    <!-- <td><a href="#level-32">Level 32</a></td> -->
+    <td><a href="#level-32">Level 32</a></td>
+    <!-- <td><a href="#level-33">Level 33</a></td> -->
 </tr>
 </table>
 
@@ -468,7 +470,7 @@
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">&quot;http://www.pythonchallenge.com/pc/ring/guido.html&quot;</span></span><br><span class="line">r = requests.get(url, auth=(<span class="hljs-string">&quot;repeat&quot;</span>, <span class="hljs-string">&quot;switch&quot;</span>))</span><br><span class="line"><span class="hljs-built_in">print</span>(r.text)</span><br></pre></td></tr></table></figure>
 
 <p>There&apos;re some blank lines in the end. You can&apos;t tell any differences between these lines when they are displayed in a terminal, though.</p>
-<p>Press <kbd>ctrl</kbd>+<kbd>u</kbd> in <code>guido.html</code>. For other web broswers, the shortcut could be different. In microsoft edge dev, we enter a page <code>view-source:http://www.pythonchallenge.com/pc/ring/guido.html</code>. The source code are displayed much distinct.</p>
+<p>Press <kbd>ctrl</kbd>+<kbd>u</kbd> in <code>guido.html</code>. For other web broswers, the shortcut could be different. In microsoft edge dev, we enter a page <code>view-source:http://www.pythonchallenge.com/pc/ring/guido.html</code>. The source code are displayed much distinctly.</p>
 <p>Select all, you&apos;ll see the length of these blank lines are different. Yeah, we got the key!</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="hljs-string">&quot;http://www.pythonchallenge.com/pc/ring/guido.html&quot;</span></span><br><span class="line">r = requests.get(url, auth=(<span class="hljs-string">&quot;repeat&quot;</span>, <span class="hljs-string">&quot;switch&quot;</span>))</span><br><span class="line">msg = [<span class="hljs-built_in">len</span>(i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> r.text.split(<span class="hljs-string">&quot;\n&quot;</span>)[<span class="hljs-number">12</span>:]]</span><br><span class="line"><span class="hljs-built_in">print</span>(msg)</span><br></pre></td></tr></table></figure>
 
@@ -529,8 +531,33 @@
 <blockquote>
 <p>Page title: UFOs?</p>
 </blockquote>
-<p>The image name is interesting, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Mandelbrot_set">&quot;mandelbrot&quot;</a>.</p>
-<p>I need a while...</p>
+<p>The image name is interesting, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Mandelbrot_set">&quot;mandelbrot&quot;</a>. <a target="_blank" rel="noopener" href="https://youtu.be/7MotVcGvFMg">This video</a> explains it in detail, and helps a lot with understanding mandelbrot set.</p>
+<p>Well, it&apos;s not enough just understand what a mandelbrot set is. At least, for me. I had no idea what to do next. Again, I looked for solutions online.</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mandelbrot</span>(<span class="hljs-params">size: <span class="hljs-built_in">tuple</span></span>):</span></span><br><span class="line">    left, top, width, height = <span class="hljs-number">0.34</span>, <span class="hljs-number">0.57</span>, <span class="hljs-number">0.036</span>, <span class="hljs-number">0.027</span></span><br><span class="line">    iteration = <span class="hljs-number">128</span></span><br><span class="line">    xstep, ystep = width/size[<span class="hljs-number">0</span>], height/size[<span class="hljs-number">1</span>]</span><br><span class="line">    <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(size[<span class="hljs-number">1</span>]-<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>):</span><br><span class="line">        <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(size[<span class="hljs-number">0</span>]):</span><br><span class="line">            c, z = <span class="hljs-built_in">complex</span>(left+x*xstep, top+y*ystep), <span class="hljs-built_in">complex</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)</span><br><span class="line">            <span class="hljs-keyword">for</span> count <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(iteration):</span><br><span class="line">                z = z**<span class="hljs-number">2</span> + c</span><br><span class="line">                <span class="hljs-keyword">if</span> <span class="hljs-built_in">abs</span>(z) &gt; <span class="hljs-number">2</span>:</span><br><span class="line">                    <span class="hljs-keyword">break</span></span><br><span class="line">            <span class="hljs-keyword">yield</span> count</span><br></pre></td></tr></table></figure>
+
+<p>This is how mandelbrot set should be like for this level. Don&apos;t ask me anything about the value of the <code>z</code>&apos;s and <code>c</code>&apos;s. LOL</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">img = Image.<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;assets/mandelbrot.gif&quot;</span>)</span><br><span class="line"><span class="hljs-built_in">print</span>(img.size)</span><br><span class="line">newimg = img.copy()</span><br><span class="line">newimg.putdata(<span class="hljs-built_in">list</span>(mandelbrot(img.size)))</span><br><span class="line">newimg.show()</span><br></pre></td></tr></table></figure>
+
+<p>The image we get in this step looks pretty similiar to the <code>mandelbrot.gif</code> file.</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">diff = [(a - b) <span class="hljs-keyword">for</span> a, b <span class="hljs-keyword">in</span> <span class="hljs-built_in">zip</span>(img.getdata(), newimg.getdata()) <span class="hljs-keyword">if</span> a != b]</span><br><span class="line"><span class="hljs-built_in">print</span>(diff)</span><br></pre></td></tr></table></figure>
+
+<p>The values in <code>diff</code> are all 16/-16. And there&apos;re 1679 values in it.</p>
+<p>Convert the variable to a 1-bit picture. The size has to be 23*73. These are the only set of factors of 1679.</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">result = Image.new(<span class="hljs-string">&quot;1&quot;</span>, (<span class="hljs-number">23</span>, <span class="hljs-number">73</span>))</span><br><span class="line">result.putdata([(i &gt; <span class="hljs-number">0</span>) <span class="hljs-keyword">and</span> <span class="hljs-number">1</span> <span class="hljs-keyword">or</span> <span class="hljs-number">0</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> diff])</span><br><span class="line">result.show()</span><br></pre></td></tr></table></figure>
+
+<p>The image we get this time is the famous <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Arecibo_message">Arecibo message</a>, which was sent into universe in 1974.</p>
+<p>The answer, by the way ,is arecibo.</p>
+<h2><a href="#level-32" class="header-anchor">#</a><span id="level-32">Level 32</span></h2><p>Page title is <code>etch-a-scetch</code>. Seems that we&apos;re to draw something in the page</p>
+<p>A <code>warmup.txt</code> was mentioned in the source code.</p>
+<p>This is pretty simple. We can solve it using the page <code>arecibo.html</code></p>
+<img src="/img/up.png" alt="up">
+
+<p><code>up.html</code> then.</p>
+<blockquote>
+<p>You want to go up? Let&apos;s scale this up then. Now get serious and solve <a target="_blank" rel="noopener" href="http://www.pythonchallenge.com/pc/rock/up.txt">this</a>.</p>
+</blockquote>
+<p>Now it&apos;s so much harder that we&apos;re not supposed to do it by hand.</p>
+<p>It&apos;s harder than I thought. I&apos;ll pause here. Got something else urgent to do...</p>
 
     
     </div>
