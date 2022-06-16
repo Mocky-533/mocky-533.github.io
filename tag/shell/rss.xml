@@ -2,7 +2,7 @@
 <rss version="2.0">
     <channel>
         <title>Gerald&#39;s Cabin • Posts by &#34;shell&#34; tag</title>
-        <link>https://mocky-533.github.io</link>
+        <link>https://www.mechgerald.site</link>
         <description></description>
         <language>en,zh-cn,default</language>
         <pubDate>Fri, 04 Mar 2022 20:32:58 +0800</pubDate>
@@ -11,9 +11,9 @@
         <category>Pixel Experience</category>
         <category>shell</category>
         <item>
-            <guid isPermalink="true">https://mocky-533.github.io/2022/lychee</guid>
+            <guid isPermalink="true">https://www.mechgerald.site/2022/lychee</guid>
             <title>Planting Lychee Gallary on Padavan Firmware</title>
-            <link>https://mocky-533.github.io/2022/lychee</link>
+            <link>https://www.mechgerald.site/2022/lychee</link>
             <category>shell</category>
             <pubDate>Fri, 04 Mar 2022 20:32:58 +0800</pubDate>
             <description><![CDATA[ &lt;h2&gt;&lt;a href=&#34;#hardware&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;&lt;span id=&#34;hardware&#34;&gt;Hardware&lt;/span&gt;&lt;/h2&gt;&lt;ul&gt;
@@ -57,9 +57,9 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://mocky-533.github.io/2022/zh-cn/lychee</guid>
+            <guid isPermalink="true">https://www.mechgerald.site/2022/zh-cn/lychee</guid>
             <title>H大padavan固件折腾Lychee记录</title>
-            <link>https://mocky-533.github.io/2022/zh-cn/lychee</link>
+            <link>https://www.mechgerald.site/2022/zh-cn/lychee</link>
             <category>shell</category>
             <pubDate>Fri, 04 Mar 2022 20:32:58 +0800</pubDate>
             <description><![CDATA[ &lt;h2&gt;&lt;a href=&#34;#ying-jian&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;&lt;span id=&#34;ying-jian&#34;&gt;&amp;#x786C;&amp;#x4EF6;&lt;/span&gt;&lt;/h2&gt;&lt;ul&gt;
@@ -102,9 +102,9 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://mocky-533.github.io/2021/ipv6</guid>
+            <guid isPermalink="true">https://www.mechgerald.site/2021/ipv6</guid>
             <title>Ipv6 Availability Checking Script on Padavan</title>
-            <link>https://mocky-533.github.io/2021/ipv6</link>
+            <link>https://www.mechgerald.site/2021/ipv6</link>
             <category>shell</category>
             <pubDate>Thu, 21 Oct 2021 17:29:11 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;For some unknown reasons, the ipv6 got offline once in a while. After rebooting, it turned just fine. I need ipv6 to do torrenting. So here comes the demand for a script to check my ipv6 availability.&lt;/p&gt;
@@ -132,9 +132,9 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://mocky-533.github.io/2021/zh-cn/ipv6</guid>
+            <guid isPermalink="true">https://www.mechgerald.site/2021/zh-cn/ipv6</guid>
             <title>padavan固件ipv6检验脚本</title>
-            <link>https://mocky-533.github.io/2021/zh-cn/ipv6</link>
+            <link>https://www.mechgerald.site/2021/zh-cn/ipv6</link>
             <category>shell</category>
             <pubDate>Thu, 21 Oct 2021 17:29:11 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;&amp;#x4E0D;&amp;#x77E5;&amp;#x9053;&amp;#x4EC0;&amp;#x4E48;&amp;#x539F;&amp;#x56E0;&amp;#xFF0C;ipv6&amp;#x603B;&amp;#x662F;&amp;#x9694;&amp;#x4E00;&amp;#x6BB5;&amp;#x65F6;&amp;#x95F4;&amp;#x5C31;&amp;#x6389;&amp;#x7EBF;&amp;#xFF0C;&amp;#x91CD;&amp;#x542F;&amp;#x8DEF;&amp;#x7531;&amp;#x5668;&amp;#x540E;&amp;#x53C8;&amp;#x6062;&amp;#x590D;&amp;#x6B63;&amp;#x5E38;&amp;#x3002;&amp;#x53C8;&amp;#x56E0;&amp;#x4E3A;&amp;#x4E2A;&amp;#x4EBA;&amp;#x6709;pt&amp;#x505A;&amp;#x79CD;&amp;#x9700;&amp;#x6C42;&amp;#xFF0C;ipv6&amp;#x53C8;&amp;#x662F;&amp;#x4E0D;&amp;#x53EF;&amp;#x6216;&amp;#x7F3A;&amp;#x7684;&amp;#x6761;&amp;#x4EF6;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x5199;&amp;#x4E2A;&amp;#x7B80;&amp;#x5355;&amp;#x7684;&amp;#x811A;&amp;#x672C;&amp;#xFF0C;&amp;#x5F53;ipv6&amp;#x53C8;&amp;#x65AD;&amp;#x7EBF;&amp;#x65F6;&amp;#x81EA;&amp;#x52A8;&amp;#x91CD;&amp;#x542F;&amp;#x8DEF;&amp;#x7531;&amp;#x5668;&lt;/p&gt;
